@@ -28,11 +28,9 @@ function showProducts(){
             echo "<td>".$product_id . "</td>";
             echo "<td>".$product_name . "</td>";
             echo "<td>".$product_category . "</td>";
-            echo "<td>".$product_description . "</td>";
             $product_price = number_format($product_price, 2);
             echo "<td><span>&#8377</span>".$product_price . "</td>";
             echo "<td>".$product_stock . "</td>";
-            echo "<td><button id='delete' onclick='deleteProduct(".$product_id.")'>delete</button></td>";
             echo "</tr>";
         }
     }
