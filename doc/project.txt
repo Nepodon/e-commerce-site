@@ -1,0 +1,114 @@
+E-Commerce (Mini Project)
+
+1. Frontend (User-facing):
+
+Product listing
+
+Product detail pages
+
+Shopping cart
+
+Checkout
+
+User login/register
+
+2. Backend (Admin panel):
+
+Add/edit/delete products
+
+Manage users and orders
+
+Inventory management
+
+3. Other Core Elements:
+
+User authentication (login/register)
+
+Cart and session management
+
+Database connectivity
+
+Order confirmation
+
+Payment gateway
+
+(MAIN)ADMIN Features:
+
+1. Dashboard Overview
+Total users
+
+Total orders
+
+Revenue summary
+
+2. Product Management
+Add, edit, delete products
+
+Upload images
+
+Set stock levels and pricing
+
+Set product visibility (active/inactive)
+
+
+4. Order Management
+View all orders
+
+Filter orders by status (Pending, Accepted , Cancelled)
+
+Update order status
+
+View order details (items, user, total, date)
+
+5. User Management
+View all registered users
+
+Edit user details
+
+Delete users (or deactivate)
+
+Assign admin roles
+
+6. Inventory Management
+View product stock levels
+
+Low-stock alerts
+
+Bulk stock update
+
+7. Promotions & Discounts (optional)
+Create discount codes
+
+Set expiration dates
+
+Apply to specific categories or products
+
+8. Content Management (optional)
+Manage homepage banners or sliders
+
+Manage static pages like About Us, Contact, etc.
+
+Blog or news section (optional)
+
+9. Admin Authentication
+Secure login for admins only
+
+Role-based access (e.g., Editor vs Super Admin)
+
+Logout and session timeout features
+
+10. Reports & Analytics
+Sales reports by date range
+
+Top-selling products
+
+Order trends
+
+Export reports as CSV
+
+
+
+UI
+
+https://wrapmarket.com/item/luxuay-ecommerce-website-template-WB0L8N32H
+https://wrapmarket.com/item/boland-minimal-shop-light-dark-WB01P97L2

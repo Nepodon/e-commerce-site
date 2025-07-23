@@ -1,0 +1,159 @@
+nav{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: hsl(0, 0%, 5%);
+}
+nav h2 {
+    font-size: 1.5rem;
+    color: hsl(0,0%,95%);
+    padding: 10px;
+    margin: 0;
+    position: fixed;
+}
+.hovers{
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    z-index: 1;
+}
+.hovers li{
+    padding: 10px;
+    margin: 8px;
+    display: block;
+    float: left;
+    transition: all 0.2s ease-in-out;
+    cursor:pointer;
+}  
+
+.hovers li a{
+    text-decoration: none;
+    color: hsl(0,0%,70%);
+}
+.hovers li:hover {
+    background-color: hsl(0,0%,10%); 
+    border: 1px solid hsl(0,0%,10%);
+    border-radius: 16px;
+    box-shadow: 0 0 10px 0 hsl(0,0%,70%);
+    z-index: -1;
+}
+.hovers li:hover a {
+    color: hsl(0,0%,95%);
+}
+.products-container{
+    width: 55%;
+    height: 50vh;
+    margin-left: 40px;
+    justify-content: center;
+    background-color: hsl(0,0%,5%);
+    border-radius: 26px;
+    
+}
+.products{
+    padding: 20px;  
+    margin-top: 40px;
+    width: 950px;
+    display: block;
+    justify-content: center;
+}
+.products th{
+    border: 1px solid hsl(0,0%, 5%);
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: hsl(0,0%,70%);
+}
+.products td{
+    border: 1px solid hsl(0,0%,5%);
+    padding: 20px;
+    text-align: center;
+    font-size: 1rem;
+    color: hsl(0,0%,70%);
+}
+
+.products td button{
+    border: none;
+    width: 100px;
+    margin-top: -5px;
+    background-color: hsl(0, 0%, 5%);
+    color: hsl(0, 61%, 40%);
+    float: right;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.display-revenue{
+    width: 30%;
+    height: 20vh;
+    background-color: hsl(0,0%,5%);
+    display: flex;
+    float: right;
+    margin-right: 100px;
+    margin-top: -23%;
+    border-radius: 16px;
+}
+.display-revenue h1 {
+    color: hsl(0,0%,95%);
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.display-revenue .revenue-details{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.revenue-details span {
+    display: inline-flex;
+    align-items: flex-start; 
+    margin-left: -160px;
+    margin-top: -100px;
+    font-size: 1.1rem;
+    color: hsl(0,0%,70%);
+}
+
+.display-orders{
+    width: 30%;
+    height: 27vh;
+    background-color: hsl(0,0%,5%);
+    display: flex;
+    float: right;
+    margin-right: 100px;
+    margin-top: -12%;
+    border-radius: 16px;
+}
+.display-orders h1 {
+    color: hsl(0,0%,95%);
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.display-orders .orders-details{
+    font-size: 1.1rem;
+    color: hsl(0,0%,70%);
+    display: block;
+    justify-content: left;
+    align-content: center;
+    margin-left: -125px;
+    margin-top: 40px;
+}
+.display-order-details{
+    width: 60%;
+    height: 50vh;
+
+    background-color: hsl(0,0%,5%);
+    display: block;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
+    margin-top: 50px;
+}
+.display-order-details h1{
+    color: hsl(0,0%,95%);
+    margin-left: 40px;
+    margin-top: 20px;
+}
