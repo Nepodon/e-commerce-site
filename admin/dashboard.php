@@ -1,5 +1,10 @@
 <?php
 require_once 'code.php';
+session_start();
+if(!isset($_SESSION['username'])){
+    header('Location: login.php');
+    die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,12 +12,20 @@ require_once 'code.php';
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="index.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
+        <link href="dashboard.css?v=12" rel="stylesheet" type="text/css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Oregano:ital@0;1&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=settings" />
+        <title>Admin Dashboard</title>
         <style>
+            .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+            }
             body{
                 margin: 0;
                 padding: 0;

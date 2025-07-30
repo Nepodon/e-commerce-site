@@ -7,6 +7,7 @@
 <?php
 require_once "../includes/db.php";
 require_once "../includes/images.php";
+require_once '../includes/functions.php';
 
 setlocale(LC_MONETARY, 'en_IN.UTF-8');
 
