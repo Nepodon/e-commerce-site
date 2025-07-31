@@ -6,13 +6,10 @@
     margin-right: auto;
     align-items: center;
     padding: 15px 30px ;
-    background-color: hsl(0,0%,10%);
+    box-shadow: 0 0 10px 0 hsl(0,0%,30%);
     border-radius: 10px;
 }
-.container:hover {
-    box-shadow: 0 0 10px 0 hsl(0,0%,70%);
-    transition: 0.3s;
-}
+
 .container form input[type="text"], input[type="password"] {
     width: 90%;
     padding: 10px;

@@ -6,6 +6,8 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+# config.php
+includes/config.php
 # Local History for Visual Studio Code
 .history/
 

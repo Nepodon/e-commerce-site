@@ -2,22 +2,6 @@
 // Utility functions can be added here
 require_once("db.php");
 
-function validate_admin(string $username, string $password_hash): int{
-    global $conn;
-    $sql = "SELECT * FROM admin WHERE name = '$username' AND password = '$password_hash'";
-    $result = $conn->query($sql);
-    if($result->num_rows > 0){
-        $db = $result->fetch_assoc();
-        $db_password = $db['password'];
-        if(password_verify($password_hash, $db_password) == true){
-            return 0;
-        } else {
-            return -1;
-        }
-    } else {
-        return -2;
-    }
-}
 function validate_user(string $email, string $password): int{
     global $conn;
     
