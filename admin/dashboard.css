@@ -1,3 +1,17 @@
+@import url('../color-palette.css');
+/* Icons and fonts*/
+#display-card-icons{
+    display: flex;
+    float: right;
+    border-radius: 10px;
+    margin-right: 50px;
+    margin-top: -20px;
+    font-size: 4rem;
+    width: 20%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+}
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -6,19 +20,39 @@
   'opsz' 24
 }
 
+
+.merriweather-sans{
+  font-family: 'Merriweather-sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+/*Desgins*/
+*,
+*::before,
+*::after{ 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--50);
+    font-family: 'Merriweather', sans-serif;
+}
 nav{
+
     width: 100%;
     height: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-    background-color: hsl(0, 0%, 4%);
     padding: 0 20px;
 }
 nav h2 {
     font-size: 1.5rem;
-    color: hsl(0,0%,95%);
     margin-left: 40px;
 }
 .nav-links {
@@ -28,7 +62,7 @@ nav h2 {
     letter-spacing: 0.5px;
 }
 .nav-links a {
-    color: hsl(0,0%,60%);
+    color: var(--800);
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -36,7 +70,6 @@ nav h2 {
     position: relative;
     transition: all 0.3s ease;
 }
-
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -44,7 +77,7 @@ nav h2 {
     left: 0;
     width: 0;
     height: 3px;
-    background-color: hsl(0,0%,85%);
+    background-color: var(--800);
     transition: width 0.3s ease;
 }
 
@@ -52,104 +85,57 @@ nav h2 {
     width: 100%;
 }
 .nav-links a:hover{
-    color: hsl(0, 0%, 85%);
+    color: var(--300);
 }
 
+#home{
+    display: flex;
+}
 .products-container{
     width: 55%;
     height: 50vh;
     margin-left: 40px;
-    background-color: hsl(0,0%,4%);
+    background-color: var(--200);
     border-radius: 16px;
-    
     margin-top: 100px;
     display: flex;
-    justify-content: space-evenly;
-}
-.products-container table{
-    overflow-y: auto;
-    width: 100%;
-    display: block;
-    border: 1px solid hsl(0,0%,5%);
-    border-radius: 16px;
-}
 
-.products-container th{
-    width: 22.5%;
-    padding: 15px;
-    margin: 0;
-    text-align: center;
-    font-size: 1.3rem;
-    color: hsl(0,0%,85%);
-    border: 1px solid white;
 }
-.products-container td{
-    border: 1px solid hsl(0,0%,5%);
-    border-collapse: collapse;
-    border-spacing: 0;
-    padding: 15px;
-    text-align: center;
-    font-size: 1rem;
-    color: hsl(0,0%,65%);
-}
-
-.display-revenue{
-    width: 30%;
-    height: 20vh;
-    background-color: hsl(0,0%,5%);
-    display: flex;
-    float: right;
-    margin-right: 100px;
-    margin-top: -23%;
-    border-radius: 16px;
-}
-.display-revenue h1 {
-    color: hsl(0,0%,95%);
-    margin-left: 40px;
+.products-container h2{
     margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
 }
-
-.display-revenue .revenue-details{
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    margin-bottom: 20px;
-    margin-left: 30px;
-}
-
-.revenue-details span {
-    display: inline-flex;
-    align-items: flex-start; 
-    margin-left: -160px;
-    margin-top: -100px;
-    font-size: 1.1rem;
-    color: hsl(0,0%,70%);
-}
-
-.display-orders{
+.display-details{
     width: 30%;
-    height: 27vh;
-    background-color: hsl(0,0%,5%);
+    height: 50vh;
+    margin-top: 100px;
+    margin-left: 90px;
     display: flex;
-    float: right;
-    margin-right: 100px;
-    margin-top: -12%;
-    border-radius: 16px;
-}
-.display-orders h1 {
-    color: hsl(0,0%,95%);
-    margin-left: 40px;
-    margin-top: 20px;
-}
-.display-orders .orders-details{
-    font-size: 1.1rem;
-    color: hsl(0,0%,70%);
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    row-gap: 20px;
+    gap: 50px;
 }
-.orders-details span {
-    padding: 0;
-    margin-left: -100px;
+
+.display-details .display-revenue,
+.display-details .display-orders{
+    width: 100%;
+    height: 45%;
+    background-color: var(--200);   
+    border: none;
+    border-radius: 16px;
+
 }
+.display-revenue h3, 
+.display-orders h3{
+    color: var(--950);
+    letter-spacing: 0.5px;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 10px;
+} 
+
+.display-details .display-revenue span p {
+    margin-left: 30px;
+    margin-top: 20px;
+    font-size: 2rem;
+}   

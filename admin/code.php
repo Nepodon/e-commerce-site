@@ -46,7 +46,7 @@ function showRevenue(){
             $revenue = $row['total_revenue'];
             $revenue = number_format($revenue, 2);
             echo "<div class='revenue-details'>";
-            echo "<span><p>Total Revenue: &#8377 ".$revenue."</p></span>";
+            echo "<span><p>&#8377 ".$revenue."</p></span>";
             echo "</div>";
         }
     }

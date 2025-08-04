@@ -1,3 +1,14 @@
+@import url('../color-palette.css');
+
+body {
+    background-color: var(--50);
+    color: --var(--950);
+    font-family: 'Merriweather', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
 .container {
     width: 20%;
     height: 40vh;
@@ -6,7 +17,8 @@
     margin-right: auto;
     align-items: center;
     padding: 15px 30px ;
-    box-shadow: 0 0 10px 0 hsl(0,0%,30%);
+    background-color: hsl(0, 90%, 95%);
+    box-shadow:  var(--300) 0 0 10px 0 ;
     border-radius: 10px;
 }
 
@@ -14,7 +26,7 @@
     width: 90%;
     padding: 10px;
     margin: 10px;
-    border: 2px solid hsl(0,0%, 10%);
+    border: 1px solid var(--100);
     border-radius: 5px;
     text-decoration: none;
 }
@@ -25,12 +37,9 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    color: hsl(0,0%,0%);
-    font-family: 'Oregano', italic; 
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 .container form input[type="submit"]:hover {
-    box-shadow: 0 0 10px 0 hsl(0,0%,70%);
+    box-shadow: 0 0 10px 0 var(--300);
     transition: 0.3s;
-    
 }
