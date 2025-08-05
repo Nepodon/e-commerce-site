@@ -1,4 +1,4 @@
-@import url('../color-palette.css');
+@import url('color-palette.css');
 
 body {
     background-color: var(--50);
