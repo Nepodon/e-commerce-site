@@ -15,6 +15,7 @@ body{
     font-weight: 400;
     font-style: normal;
     color: var(--950);
+    background-color: var(--50);
     overflow-x: hidden;
 }
 nav{
@@ -22,8 +23,15 @@ nav{
     height: 20%;
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
 }   
+nav h1{
+    background : linear-gradient(var(--200),var(--400), var(--600),var(--500));
+    background-clip: text;
+    color: transparent;
+    margin-left: 40px;
+    font-size: 1.7rem;
+}
 .nav-links {
     display: flex;
     float: left;
@@ -35,10 +43,10 @@ nav{
 .dropdown button {
     font-size: 1rem;
     cursor: pointer;
+    border: none;
 }
-
 .dropdown a {
-    display: block;
+    display: flex;
     text-decoration: none;
 }
 .dropdown .contents{
@@ -51,18 +59,12 @@ nav{
     font-size: 1rem;
     padding: 10px 10px; 
     height: 20px; 
-    background-color: var(--200);
     border: 1px solid black;
+    background:linear-gradient(-45deg,var(--50),var(--100), var(--200));
+
 }
 .dropdown:hover .contents{
     display: block;
-}
-.nav-links input,
-.nav-links button{
-    display: inline-block;
-    height : 30px;
-    border: none;
-    border-radius: 5px;
 }
 
 .nav-links a{
@@ -84,20 +86,48 @@ nav{
     width: 100%;
     height: 60vh;
     padding: 20px;
+    /*background: linear-gradient(var(--100), var(--50));*/
     background-color: var(--100);
 }
 .product-card {
     display: flex;
     flex-direction: column;
-    width: 15%;
-    height: 80%;
+    width: 13%;
+    height: 40%;
+    margin-left: 3%;
+    margin-top: 2%;
+    transition: all 0.2s ease-in-out;
     background-color: var(--50);
+    min-width: 200px;
+    position: relative;
 }
 .product-card img{
-    width: 95%;
-    height: 60%;
-    padding: 5px;
+    display: block;
+    width: 90%;
+    height: auto;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+    background: transparent;
 }
-.product-card :hover{
+
+.product-card .overlay {
+  position: absolute;
+  bottom: -10%;
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: var(--50);
+  width: clamp(80%, 100%, 100px);
+  transition: .5s ease;
+  opacity:0;
+  padding: 20px;
+  text-align: center;
+  justify-content: last baseline;
+  font-size: 1rem;
+
+}
+.featured-products .product-card:hover {
     box-shadow: 0 0 10px 0 var(--200);
+}
+
+.featured-products .product-card:hover .overlay{
+    opacity: 1;
 }
