@@ -1,0 +1,15 @@
+src - source code including user(&admins) front-end, and backend code
+    admin/
+        -> css (stylesheets)
+        -> js(javascript)
+        -> php (php client-side code)
+        -> .html files ()
+    include/ 
+        ->php files for server-side
+    user/
+        -> css (stylesheets)
+        -> js(javascript)
+        -> php (php client-side code)
+        -> .html files (view pages)
+    images/
+        -> Images used in site
