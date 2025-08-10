@@ -17,39 +17,24 @@ body{
     color: var(--950);
     background-color: hsl(0, 0, 95);
     max-width: inherit;
-    
 }
 body::-webkit-scrollbar{
     scrollbar-width: none;
 }
-#home {
-    width: inherit;
-    height: 100vh;
 
-}
-#home img{
-    display: block;
-    float: left;
-    width: 50vw;
-    height: 90vh;
-    opacity: 0.7;
-}
-#home h2 {
+#home{
+    width: inherit;
+    height: 50vh;
     display: flex;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    align-self: center;
-    float: right;   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-#home button{
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    align-self: flex-start;
-    float: right;
+.buttons{
+    width: 30%;
+    height: 13%;
 }
+
 .product-card {
     display: flex;
     float: left;

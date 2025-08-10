@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="css/login.css?v=12">
+    <link rel="stylesheet" href="css/buttons.css?v=12">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Retailo Login</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+    <script>
+        function showPassword(){
+            var pass = document.getElementById('password');
+            if(pass.type == "password"){
+                x.type = "text";
+            } else {
+                x.type = "password"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">   
+        <img class="login-img" src="../images/bg/login-3.jpg">
+        <div id="form" class="login-form">
+
+            <h1>Signup</h1>
+            <form method="post">
+                <label for="email">Email</label>
+                <input name="email" type="text" required><br>
+                <label for="password">Password</label>
+                <input id="password" name="password"  type="password" required>
+                <input type="submit" class="buttons">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
