@@ -1,4 +1,4 @@
-@import url('color-palette.css');
+@import url('color.css');
 /*Icons and fonts*/
 .material-symbols-outlined {
   font-variation-settings:
@@ -11,9 +11,6 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: "Arvo", serif;
-    font-weight: 400;
-    font-style: normal;
     color: var(--950);
     background-color: hsl(0, 0, 95);
     max-width: inherit;
@@ -23,58 +20,38 @@ body::-webkit-scrollbar{
 }
 
 #home{
-    width: inherit;
+    width: 100%;
     height: 50vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.buttons{
-    width: 30%;
-    height: 13%;
-}
-
-.product-card {
-    display: flex;
     float: left;
-    width: 13%;
-    height: 50%;
-    margin-left: 3%;
-    margin-top: 2%;
-    background-color: var(--50);
-    min-width: 200px;   
+    justify-content: center;
+    align-items: center;
+    color: hsl(0,0%,95%);
 }
-.product-card img{
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    padding: 0 auto;
+#home #home-img{
+    width: 50%;
+    height: inherit;
+    position: relative;
 }
-.product-card .overlay{
-    background-color: rgba(0, 0, 0, 0.5);
-    width: inherit;
-    height: 3rem;
+.center-img{
+    height: inherit;
     position: absolute;
-    align-self: last baseline;
-    align-content: center;
     text-align: center;
-    margin: 0 auto;
-    padding: 0;
-    opacity: 0;
-    transition: 0.3s ease;
-    font-size: 1rem;
+    align-content: center;
+}
+.center-img .buttons{
+    width: 30%;
+    height: 12%;
+}
+.center-img .buttons:hover{
+    box-shadow: 0 5px 20px 8px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
-.overlay a {
-    text-decoration: none;
-    color: var(--50);
+#home:hover #home-img{
+    transition: 0.3s ease-in;
+    opacity: 0.5;
 }
-#featured-products .product-card:hover {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 15px;   
-    /*box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;*/
-}
-
-#featured-products .product-card:hover .overlay{
-    opacity: 1;
+#home:hover .center-img{
+    cursor: pointer;
+    color:black;
 }

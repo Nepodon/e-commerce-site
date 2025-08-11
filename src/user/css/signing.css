@@ -1,32 +1,30 @@
-@import url('color-palette.css');
+@import url('color.css');
 body {
-    font-family: "Arvo", sans-serif;
+    font-family: "Arvo";
     background: var(--50);
-    display: flex;
+    display:flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
-    margin: auto auto;
-    /*background:linear-gradient(#845ec2, #d65db1, hsl(0, 100%, 50%));*/
+    margin: 0 auto;
 }
 
 .login-container{
-    width: 50vw;
+    width: 60vw;
     height: 70vh;
-    border-radius: 10%;
     display: flex;
     float: right;
     border: transparent;
-    border-radius: 10%;
     overflow: hidden;
-    box-shadow: 0 25px 70px 0 rgba(0,0,0,0.5);
-    border: solid 1px black;     
+    box-shadow: 0 25px 50px 0 rgba(0,0,0,0.5);
+    border: solid 1px black;  
 }
-.login-container .login-img{
-    width: 50%;
-    border-radius: 10%;
+.login-img{
+    width: 60%;
+    position: relative;
 }
-.login-container .login-form{
+.login-form{
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -44,9 +42,8 @@ body {
     margin: 10px;   
     border-radius: 10px;
 }
-.login-form input[type=text],
-.login-form input[type=password]{
-    width: 90%;
+.login-form input:not(.buttons){
+    width: 80%;
     height: 30px;
     margin: 10px;   
     border-radius: 10px;
@@ -56,4 +53,19 @@ body {
     width: 90%;
     height: 40px;
     margin: 10px;
+}
+.buttons:hover {
+    cursor: pointer;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.4);
+}
+.login-form p {
+    text-align: center;
+}
+.login-form a{
+    text-decoration: none;
+    color: black;
+}
+.login-form a:hover{
+    color: green;
+    text-decoration: underline;
 }
