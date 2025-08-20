@@ -21,8 +21,6 @@
                 <input name="email" type="text" required>   
                 <label for="password">Password</label>
                 <input id="password" name="password"  type="password" required>
-                <label for="confirm-password">Confirm password</label>
-                <input id="confirm-password" name="confirm-password"  type="password" required>
                 <input type="submit" class="buttons">
             </form>
         </div>

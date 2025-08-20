@@ -1,57 +1,18 @@
+
 nav{
     width: inherit;
     height: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.side-panel{
-    height: 100vh; /* Specify a height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    left: 0;
-    background-color: hsl(0, 0%, 90%); /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s;
-}
-.side-panel a{
-    color: var(--950);
-    display: block;
-    width: 100%;
-    height: 5%;
-    text-decoration: none;
-    padding: 5px;
-    font-size: 1.2rem;
-}
-.side-panel a:hover{
-    color: white;
+    margin: 0 16px;
 }
 
-.menu {
-    cursor: pointer;
-    padding: 5px;
-    border: none;
+#menu{
+    display: flex;
+    float: right;
 }
 
-.menu button{
-    border: transparent;
-    background-color: transparent;
-}
-.menu button:hover{
-    background-color: hsl(0, 0%, 90%);
-    cursor: pointer;
-}
-.menu button:cl .side-panel{
-    display: flex;
-}
-.user-features {
-    display: flex;
-    gap: 0.5rem;
-    font-size: 1.5rem;
-}
 .user-features a{
     text-decoration: none;
     width: 35px;
@@ -68,4 +29,45 @@ nav{
 }
 .user-features a:hover span{
     background-color: hsl(0, 0%, 90%);
+}
+.user-features, 
+.menu-btn{
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    float: left;
+}
+.menu-btn button{
+    background-color: var(--50);
+    border: none;
+}
+.menu-btn button:hover{
+    background-color: hsl(0, 0%, 90%);
+}
+.side-panel{
+    height: 100vh;
+    width: 30vh;
+    z-index: 1;
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    background-color: hsl(0,0%,10%);
+}
+.side-panel a {
+    display: block;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 16px;
+    color: hsl(0, 0%, 90%);
+}
+.side-panel a:hover {
+    color: hsl(0,0%,10%);
+    background-color: hsl(0,0%,90%);
+}
+.side-panel a:first-child {
+    margin-top: 30%;
+}
+.menu-btn {
+    background: var(--50);
 }
