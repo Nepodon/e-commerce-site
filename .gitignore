@@ -7,7 +7,8 @@
 !.vscode/*.code-snippets
 
 # config.php
-includes/config.php
+app/config.php
+
 # Local History for Visual Studio Code
 .history/
 
