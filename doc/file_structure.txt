@@ -1,4 +1,4 @@
-src - source code including user(&admins) front-end, and backend code
+    e-commerce/
     admin/
         -> css (stylesheets)
         -> js(javascript)

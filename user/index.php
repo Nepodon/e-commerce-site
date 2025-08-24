@@ -4,10 +4,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8" />
         
-        <link rel="stylesheet" href="css/index.css?v=13" />
+        <link rel="stylesheet" href="css/index.css?v=12" />
         <link rel="stylesheet" href="css/navbar.css?v=15" />
         <link rel="stylesheet" href="css/buttons.css?v=13"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <title>Retailo</title>
         <style>
@@ -49,9 +51,9 @@
         <div id="home">
             <img id="home-img" src="assets/img2.jpg">
             <img id="home-img" src="assets/img6.jpg">
-            <div class="center-img">
-                <h2>PREMIUM DEVELOPMENT BOARDS</h2>
-                <button class="buttons">Shop Now</button>
+            <div class="img-text">
+                <h1>PREMIUM DEVELOPMENT BOARDS</h1>
+                <a href="#"><button class="buttons">Shop Now</button></a>
             </div>
         </div>   
     </body>

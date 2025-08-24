@@ -20,7 +20,7 @@
                 <label for="password">Password</label>
                 <input id="password" name="password"  type="password" required>
                 <input type="submit" class="buttons">
-                <p><a href="signup.html">Create new account</a></p>
+                <p><a href="signup.php">Create new account</a></p>
             </form>
         </div>
     </div>

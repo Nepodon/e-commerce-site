@@ -1,4 +1,5 @@
 @import url('color.css');
+
 /*Icons and fonts*/
 .material-symbols-outlined {
   font-variation-settings:
@@ -14,6 +15,7 @@ body{
     color: var(--950);
     background-color: hsl(0, 0, 95);
     max-width: inherit;
+    font-family: 'Arvo';
 }
 body::-webkit-scrollbar{
     scrollbar-width: none;
@@ -32,26 +34,28 @@ body::-webkit-scrollbar{
     width: 50%;
     height: inherit;
     position: relative;
+    transition: 1s ease-in-out;
+    filter: grayscale(90%);
 }
-.center-img{
+.img-text{
     height: inherit;
     position: absolute;
     text-align: center;
     align-content: center;
+    font-size: .8rem;
 }
-.center-img .buttons{
+.img-text .buttons{
     width: 30%;
     height: 12%;
 }
-.center-img .buttons:hover{
+.img-text .buttons:hover{
     box-shadow: 0 5px 20px 8px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 #home:hover #home-img{
-    transition: 0.3s ease-in;
-    opacity: 0.5;
+    opacity: 0.3;
+    filter: grayscale(0);
 }
-#home:hover .center-img{
+#home:hover .img-text{
     cursor: pointer;
-    color:black;
 }
