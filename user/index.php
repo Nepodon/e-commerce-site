@@ -1,15 +1,27 @@
 <?php 
-// add session manager
+session_start();
+$user = require_once '../app/UserControl.php';
+
+$user_data = null;
+// Cookie for auto-login after ending a session
+if (isset($_SESSION['user_id'])) {
+    $res = $user->getUserData($_COOKIE['email']);
+    $user_data = $res->fetch_assoc();
+} else {
+    header("Location: signin.php");
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="css/index.css" />
-        <link rel="stylesheet" href="css/navbar.css?v=15" />
-        <link rel="stylesheet" href="css/buttons.css?v=13" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo">
+        <link rel="stylesheet" href="css/index.css?v=12" />
+        <link rel="stylesheet" href="css/navbar.css?v=12" />
+        <link rel="stylesheet" href="css/buttons.css?v=10" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <title>Retailo</title>
         <style>
@@ -32,8 +44,8 @@
             <h1>RETAILO</h1>
             <div id="#menu">
                 <div class="user-features">
-                    <a href="#"><span class="material-symbols-outlined">account_circle</span></a>
-                    <a href="#"><span class="material-symbols-outlined">shopping_bag</span></a>
+                    <a href="account.php"><span class="material-symbols-outlined">account_circle</span></a>
+                    <a href="cart.php"><span class="material-symbols-outlined">shopping_bag</span></a>
                 </div>
                 <div id="side-panel" class="side-panel">
                     <a href="javascript:void(0)" class="closebtn" onclick="closePanel()">&times;</a>
@@ -47,14 +59,31 @@
                 </div>
 
             </div>
-        </nav>    
-        <div id="home">
-            <img id="home-img" src="assets/img2.jpg">
-            <img id="home-img" src="assets/img6.jpg">
-            <div class="img-text">
-                <h1>PREMIUM DEVELOPMENT BOARDS</h1>
-                <a href="#"><button class="buttons">Shop Now</button></a>
+        </nav>     
+        <div>
+            <div class="home">
+                <img  src="assets/img2.jpg" alt="">
+                <img  src="assets/img6.jpg" alt="">
             </div>
-        </div>   
+            <div class="shop-now">
+                <h1>PREMIUM DEVELOPMENT BOARDS</h1>
+                <p>Built for Brilliance. Engineered to Endure. Uncompromising Quality</p>
+                <button class="buttons">Shop now.</button>
+            </div>
+        </div>
+        <div class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="products">
+                <div class="product-card">
+                    <p>Product 1</p>
+                </div>
+                <div class="product-card">
+                    <p>Product 1</p>
+                </div>
+                <div class="product-card">
+                    <p>Product 1</p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

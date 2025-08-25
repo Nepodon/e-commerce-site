@@ -15,46 +15,56 @@ body{
     color: var(--950);
     background-color: hsl(0, 0, 95);
     max-width: inherit;
-    font-family: 'Arvo';
+    font-family: 'Funnel Sans', sans-serif;
 }
 body::-webkit-scrollbar{
     scrollbar-width: none;
 }
 
-#home{
-    width: 100%;
+.home{
+    width:100vw;
     height: 50vh;
     display: flex;
-    float: left;
-    justify-content: center;
-    align-items: center;
-    color: hsl(0,0%,95%);
+    float: right;
 }
-#home #home-img{
+.home img{ 
     width: 50%;
-    height: inherit;
-    position: relative;
-    transition: 1s ease-in-out;
-    filter: grayscale(90%);
+    height: 100%;
+    filter: grayscale(80%);
+    transition: 0.5s ease-in-out;
 }
-.img-text{
-    height: inherit;
-    position: absolute;
+
+.home:hover img{
+    filter: grayscale(0%);
+}
+
+.shop-now{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+
+.shop-now h1,
+.shop-now p{
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
     text-align: center;
-    align-content: center;
-    font-size: .8rem;
 }
-.img-text .buttons{
-    width: 30%;
-    height: 12%;
+.shop-now .buttons {
+    width: 8%;
+    height: 2.8rem;
+    display: block;
+    margin: 2em auto;
 }
-.img-text .buttons:hover{
-    box-shadow: 0 5px 20px 8px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+.featured-products {
+    background-color: blue;
+    height: 30vh;
+    padding: 1rem;
 }
-#home:hover #home-img{
-    filter: grayscale(0);
-}
-#home:hover .img-text{
-    cursor: pointer;
-}
+.products {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    border: 1px solid black;
+    gap: 1rem;
+}   

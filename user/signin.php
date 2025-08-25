@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         if(password_verify($password, $user_data['password'])){
             session_start();
             session_regenerate_id();
-            $_SESSION['user_id'] = $user_data['id'];
+            $_SESSION['user'] = $user_data['user_id'];
             header("Location: index.php");
             exit;
         }
