@@ -8,8 +8,7 @@ if (isset($_SESSION['user_id'])) {
     $res = $user->getUserData($_COOKIE['email']);
     $user_data = $res->fetch_assoc();
 } else {
-    header("Location: signin.php");
-    exit();
+    echo "<script>alert('You are not logged in');</script>";
 }
 
 ?>
@@ -20,7 +19,7 @@ if (isset($_SESSION['user_id'])) {
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="css/index.css?v=12" />
         <link rel="stylesheet" href="css/navbar.css?v=12" />
-        <link rel="stylesheet" href="css/buttons.css?v=10" />
+        <link rel="stylesheet" href="css/buttons.css?v=12" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <title>Retailo</title>
@@ -50,7 +49,7 @@ if (isset($_SESSION['user_id'])) {
                 <div id="side-panel" class="side-panel">
                     <a href="javascript:void(0)" class="closebtn" onclick="closePanel()">&times;</a>
                     <a href="#">Catalog</a>
-                    <a href="#">Products</a>
+                    <a href="">Products</a>
                     <a href="#">None</a>
                     <a href="#">Contact</a>
                 </div>

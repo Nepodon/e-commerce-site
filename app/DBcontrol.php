@@ -1,10 +1,10 @@
 <?php
 require_once 'config.php';
 class DBcontrol extends mysqli{
-    private $host = host;
-    private $user = user;
-    private $password = password;
-    private $db = db;
+    private $host = DB_HOST;
+    private $user = DB_USER;
+    private $password = DB_PASSWORD;
+    private $db = DB_NAME;
     protected $mysqli; // Mysqli connection  to db
     protected $stmt;   
     function __construct()
