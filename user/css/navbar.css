@@ -42,7 +42,7 @@ nav{
     border: none;
 }
 .menu-btn button:hover{
-    background-color: hsl(0, 0%, 90%);
+    background-color:transparent;
 }
 .side-panel{
     height: 100vh;
@@ -53,6 +53,7 @@ nav{
     top: 0;
     right: 0;
     background-color: hsl(0,0%,10%);
+    transition: 0.5s ease-in;
 }
 .side-panel a {
     display: block;

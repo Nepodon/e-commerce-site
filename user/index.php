@@ -3,21 +3,19 @@ session_start();
 $user = require_once '../app/UserControl.php';
 
 $user_data = null;
-// Cookie for auto-login after ending a session
 if (isset($_SESSION['user_id'])) {
     $res = $user->getUserData($_COOKIE['email']);
     $user_data = $res->fetch_assoc();
 } else {
-    echo "<script>alert('You are not logged in');</script>";
+    $_SESSION["mode"] = "guest";
 }
-
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="css/index.css?v=12" />
+        <link rel="stylesheet" href="css/index.css?v=11" />
         <link rel="stylesheet" href="css/navbar.css?v=12" />
         <link rel="stylesheet" href="css/buttons.css?v=12" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
@@ -71,18 +69,62 @@ if (isset($_SESSION['user_id'])) {
             </div>
         </div>
         <div class="featured-products">
-            <h2>Featured Products</h2>
-            <div class="products">
-                <div class="product-card">
-                    <p>Product 1</p>
+            <h2>Featured Dev-Boards</h2>
+            <div class="boards">
+                <div class="products">
+                    <div class="product-card">
+                        <img src="../images/dev-boards/arduino-nano-33.jpg">
+                        <p>Arduino nano 33</p>
+                        <button class="buttons">Add to cart</button>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <p>Product 1</p>
+                <div class="products">
+                    <div class="product-card">
+                        <img src="../images/dev-boards/arduino-nano-33.jpg">
+                        <p>Arduino nano 33</p>
+                        <button class="buttons">Add to cart</button>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <p>Product 1</p>
+                <div class="products">
+                    <div class="product-card">
+                        <img src="../images/dev-boards/arduino-nano-33.jpg">
+                        <p>Arduino nano 33</p>
+                        <button class="buttons">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <h2>Featured Modules</h2>
+            <div class="modules">
+                <div class="products">
+                    <div class="product-card">
+                        <img src="../images/input-modules/joystick-module.jpg">
+                        <p>JoyStick Module</p>
+                        <button class="buttons">Add to cart</button>
+                    </div>
+                </div>
+                <div class="products">
+                    <div class="product-card">
+                        <img src="../images/input-modules/joystick-module.jpg">
+                        <p>JoyStick Module</p>
+                        <button class="buttons">Add to cart</button>
+                    </div>
+                </div>
+                <div class="products">
+                    <div class="product-card">
+                        <img src="../images/input-modules/joystick-module.jpg">
+                        <p>JoyStick Module</p>
+                        <button class="buttons">Add to cart</button>
+                    </div>
                 </div>
             </div>
         </div>
+                <!-- NOTE: 
+        To add a function which gets the top 3 most sold items.
+        
+        Also feature top 3 sold modules.
+         -->
+        <footer>
+            <p><a href="mailto:absj@gmail.com">absj@gmail.com</a></p>
+        </footer>
     </body>
 </html>
