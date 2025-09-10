@@ -17,7 +17,7 @@ nav{
     text-decoration: none;
     width: 35px;
     height: 30px;
-    color: var(--950);
+    color: hsl(0,0%,10%);
     font-size: 1.5rem;
     margin: auto;
 }

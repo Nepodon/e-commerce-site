@@ -13,8 +13,8 @@ if (isset($_SESSION['user_id'])) {
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/index.css?v=11" />
         <link rel="stylesheet" href="css/navbar.css?v=12" />
         <link rel="stylesheet" href="css/buttons.css?v=12" />
@@ -23,7 +23,7 @@ if (isset($_SESSION['user_id'])) {
         <title>Retailo</title>
         <style>
             html {
-                max-width: 100vw;
+                color: hsl(0, 0%, 10%);
             }
         </style>
         <script>

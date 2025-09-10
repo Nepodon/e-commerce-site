@@ -9,12 +9,16 @@
   'opsz' 24
 }
 /*UI design*/
-body{
+* {
     margin: 0;
     padding: 0;
-    color: var(--950);
+    max-width: 100%;
+    max-height: 100%;
+}
+body{
+    box-sizing: border-box;
     background-color: hsl(0, 0, 95);
-    max-width: inherit;
+
     font-family: 'Funnel Sans', sans-serif;
 }
 body::-webkit-scrollbar{
@@ -69,6 +73,7 @@ body::-webkit-scrollbar{
     float: left;
 }
 .products {
+    margin-left: 40px;
     display: grid;
     grid-template-columns: auto auto auto auto;
 } 
