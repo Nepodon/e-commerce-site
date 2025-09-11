@@ -9,6 +9,9 @@ final class UserControl extends DBcontrol {
         $res = $this->mysqli->query($sql);
         return $res;
     }   
+    public function checkPassword($password, $password_hash): bool {
+        return password_verify($password, $password_hash);
+    }
     public function insertUserData($username, $phone, $address, $email, $password_hash): mixed{
         $sql = "INSERT INTO users (name, phone, address, email, password) VALUES (?, ?, ?, ?, ?)";
 
@@ -20,9 +23,7 @@ final class UserControl extends DBcontrol {
         $this->stmt->execute();
         return $this->stmt->insert_id;
     }
-    public function checkPassword($password, $password_hash): bool {
-        return password_verify($password, $password_hash);
-    }
+
     public function updatePassword($id, $new_password_hash): bool {
         $sql = "UPDATE users SET password = ? WHERE id = ?";
         $this->stmt = $this->mysqli->prepare($sql);
