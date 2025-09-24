@@ -9,6 +9,15 @@ final class UserControl extends DBcontrol {
         $res = $this->mysqli->query($sql);
         return $res;
     }   
+    public function isValidUser($email): bool {
+        $email = $this->mysqli->real_escape_string($email);
+        $sql = "SELECT id FROM users WHERE email = '$email'";
+        $res = $this->mysqli->query($sql);
+        if($res && $res->num_rows > 0) {
+            return true;
+        } 
+        return false;
+    }
     public function checkPassword($password, $password_hash): bool {
         return password_verify($password, $password_hash);
     }
