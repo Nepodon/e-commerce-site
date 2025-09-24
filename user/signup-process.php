@@ -44,7 +44,7 @@ if(!$user_id){
 }
 
 session_start();
-$_SESSION['userid'] = $user_id;
+$_SESSION['user_id'] = $user_id;
 header('Location: signup-success.php');
 
 ?>
