@@ -66,8 +66,8 @@ if (isset($_SESSION['user_id'])) {
         </nav>     
         <div>
             <div class="home">
+                <img  src="assets/img8.jpg" alt="">
                 <img  src="assets/img2.jpg" alt="">
-                <img  src="assets/img6.jpg" alt="">
             </div>
             <div class="shop-now">
                 <h1>PREMIUM DEVELOPMENT BOARDS</h1>
