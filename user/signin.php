@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $user = require "../app/UserControl.php";
 
 $is_valid = false;
@@ -11,10 +11,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_data = $res->fetch_assoc();
     if($user_data){
         if(password_verify($password, $user_data['password'])){
-            session_start();
-            session_regenerate_id();
-            $_SESSION['user_id'] = $user_data['user_id'];
-            header("Location: index.php");
+            $_SESSION['user_id'] = $user_data['id'];
+            $redirect = isset($_GET['ref']) ? urldecode($_GET['ref']) : "index.php";   
+            header("Location: $redirect");
             exit;
         }
     }

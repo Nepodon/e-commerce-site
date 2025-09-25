@@ -12,8 +12,8 @@ class ProductControl extends DBcontrol {
         return false;
     }
     public function getProductSales($category) {
-        $sql = "SELECT * FROM products WHERE category = '$category' ORDER BY sold_count";
+        $sql = "SELECT  id, name, stock, sold_count 
+             FROM products WHERE category = '$category' ORDER BY sold_count DESC LIMIT 5";
         return $this->mysqli->query($sql);
     }
 }
-

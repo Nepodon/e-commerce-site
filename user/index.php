@@ -2,15 +2,20 @@
 session_start();
 
 require_once '../app/function.php';
+require_once '../app/ProductControl.php';
 $user = require_once '../app/UserControl.php';
-
+$productControl = new ProductControl();
 
 $user_data = null;
 
 if (isset($_SESSION["user_id"])) {
-    $res = $user->getUserData($_COOKIE["email"]);
+    $res = $user->getUserData($_SESSION["user_id"]);
     $user_data = $res->fetch_assoc();
 }
+
+// Fetch top 3 dev-boards and modules
+$featuredBoards = $productControl->getProductSales('dev-board');
+$featuredModules = $productControl->getProductSales('module');
 
 ?>
 <!DOCTYPE html>
@@ -72,68 +77,45 @@ if (isset($_SESSION["user_id"])) {
             </div>
         </div>
         <div class="featured-products">
+            <!-- Featured Dev-Boards -->
             <h2>Featured Dev-Boards</h2>
             <div class="boards">
                 <div class="products">
-                    <div class="product-card">
-                        <img src="../images/dev-boards/arduino-nano-33.jpg">
-                        <p>Arduino nano 33</p>
-                        <p>Available: 10</p>
-                        <button class="buttons">Add to cart</button>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="product-card">
-                        <img src="../images/dev-boards/arduino-nano-33.jpg">
-                        <p>Arduino nano 33</p>
-                        <button class="buttons">Add to cart</button>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="product-card">
-                        <img src="../images/dev-boards/arduino-nano-33.jpg">
-                        <p>Arduino nano 33</p>
-                        <button class="buttons">Add to cart</button>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="product-card">
-                        <img src="../images/dev-boards/arduino-nano-33.jpg">
-                        <p>Arduino nano 33</p>
-                        <button class="buttons">Add to cart</button>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="product-card">
-                        <img src="../images/dev-boards/arduino-nano-33.jpg">
-                        <p>Arduino nano 33</p>
-                        <button class="buttons">Add to cart</button>
-                    </div>
+                    <?php if ($featuredBoards && $featuredBoards->num_rows > 0): ?>
+                        <?php $count = 0; ?>
+                        <?php while ($row = $featuredBoards->fetch_assoc()): ?>
+                            <?php if ($count++ >= 3) break; ?>
+                            <div class="product-card">
+                                <img src="<?= htmlspecialchars($row['image_path'] ?? 'default.jpg') ?>">
+                                <p><?= htmlspecialchars($row['name']) ?></p>
+                                <p>Available: <?= htmlspecialchars($row['stock']) ?></p>
+                                <button class="buttons">Add to cart</button>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php else: ?>
+                        <p>No featured boards found.</p>
+                    <?php endif; ?>
                 </div>
             </div>
 
+            <!-- Featured Modules -->
             <h2>Featured Modules</h2>
             <div class="modules">
                 <div class="products">
-                    <div class="product-card">
-                        <img src="../images/input-modules/joystick-module.jpg">
-                        <p>JoyStick Module</p>
-                        <button class="buttons">Add to cart</button>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="product-card">
-                        <img src="../images/input-modules/joystick-module.jpg">
-                        <p>JoyStick Module</p>
-                        <button class="buttons">Add to cart</button>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="product-card">
-                        <img src="../images/input-modules/joystick-module.jpg">
-                        <p>JoyStick Module</p>
-                        <button class="buttons">Add to cart</button>
-                    </div>
+                    <?php if ($featuredModules && $featuredModules->num_rows > 0): ?>
+                        <?php $count = 0; ?>
+                        <?php while ($row = $featuredModules->fetch_assoc()): ?>
+                            <?php if ($count++ >= 3) break; ?>
+                            <div class="product-card">
+                                <img src="<?= htmlspecialchars($row['image_path'] ?? 'default.jpg') ?>">
+                                <p><?= htmlspecialchars($row['name']) ?></p>
+                                <p>Available: <?= htmlspecialchars($row['stock']) ?></p>
+                                <button class="buttons">Add to cart</button>
+                            </div>
+                        <?php endwhile; ?>
+                    <?php else: ?>
+                        <p>No featured modules found.</p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

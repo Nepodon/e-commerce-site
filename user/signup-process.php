@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 if(empty($_POST["username"]) || strlen($_POST['username']) > 20){
     die("Username is required and must be less than 20 characters");
@@ -43,7 +44,7 @@ if(!$user_id){
     exit;
 }
 
-session_start();
+
 $_SESSION['user_id'] = $user_id;
 header('Location: signup-success.php');
 
