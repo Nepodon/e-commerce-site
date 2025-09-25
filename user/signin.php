@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($user_data){
         if(password_verify($password, $user_data['password'])){
             $_SESSION['user_id'] = $user_data['id'];
-            $redirect = isset($_GET['ref']) ? urldecode($_GET['ref']) : "index.php";   
+            $redirect = isset($_GET['ref']) ? $_GET['ref'] : "index.php";   
             header("Location: $redirect");
             exit;
         }

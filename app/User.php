@@ -29,8 +29,10 @@ final class User extends DBcontrol {
             return false; // Prepare failed
         }
         $this->stmt->bind_param("sssss", $username, $phone, $address, $email, $password_hash);
-        $this->stmt->execute();
-        return $this->stmt->insert_id;
+        if($this->stmt->execute()) {
+            return true;
+        }
+        return false;   
     }
 
     public function updatePassword($id, $new_password_hash): bool {
@@ -40,8 +42,10 @@ final class User extends DBcontrol {
             return false; // Prepare failed
         }
         $this->stmt->bind_param("si", $new_password_hash, $id);
-        $res =  $this->stmt->execute();
-        return $res;
+        if($this->stmt->execute()) {
+            return true;
+        }
+        return false;
     }
     public function updateAddress($id, $new_address): bool {
         $sql = "UPDATE users SET address = ? WHERE id = ?";
@@ -50,8 +54,10 @@ final class User extends DBcontrol {
             return false; // Prepare failed
         }
         $this->stmt->bind_param("si", $new_address, $id);
-        $res =  $this->stmt->execute();
-        return $res;
+        if($this->stmt->execute()) {
+            return true;
+        }
+        return false;
     }
     public function updatePhone($id, $new_phone): bool {
         $sql = "UPDATE users SET phone = ? WHERE id = ?";
@@ -60,9 +66,22 @@ final class User extends DBcontrol {
             return false; // Prepare failed
         }
         $this->stmt->bind_param("si", $new_phone, $id);
-        $res =  $this->stmt->execute();
-
-        return $res;
+        if($this->stmt->execute()) {
+            return true;
+        }
+        return false;
+    }
+    public function updateEmail($id, $new_email): bool {
+        $sql = "UPDATE users SET email = ? WHERE id = ?";
+        $this->stmt = $this->mysqli->prepare($sql);
+        if ($this->stmt === false) {
+            return false; // Prepare failed
+        }
+        $this->stmt->bind_param("si", $new_email, $id);
+        if($this->stmt->execute()) {
+            return true;
+        }
+        return false;
     }
 }
 

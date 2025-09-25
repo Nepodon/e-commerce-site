@@ -1,3 +1,10 @@
+<?php
+$status = $_GET['status'] ?? null;
+$message = "";
+if($status === 'error'){
+    $message .= "Failed to sign up. Please try again.";
+} 
+?>
 <html>
 <head>
     <meta name="viewport" content="width: device-width;initial-scale: 1.0">
@@ -12,16 +19,24 @@
         .signup-box{
             display:flex;
             width: 75%;
-            height: 80vh;
             margin: auto;
             border: 1px solid black;
             box-shadow: 0 25px 50px 0 rgba(0,0,0,0.5);
         }
         .signup-form{
+            margin: 2rem 0;
             display: flex;
             flex-direction: column;
             width: 50%;
             height: 100%;
+        }
+        .signup-form h1{
+            text-align: center;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 1rem;
         }
         .signup-row {
             display: flex;
@@ -57,7 +72,10 @@
 <body>
     <div class="signup-box">
         <div id="form" class="signup-form">
-            <h1 align="center">Sign up</h1>
+            <h1>Sign up</h1>
+            <?php if($status === "error"): ?>
+                <div class="error-message"><?php echo $message ?></div>
+            <?php endif; ?>
             <form method="post" action="signup-process.php">
                 <div class="signup-row">
                     <label for="username">User name</label>
