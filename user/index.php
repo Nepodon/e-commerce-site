@@ -1,6 +1,10 @@
 <?php 
 session_start();
+
+require_once '../app/function.php';
+
 $user = require_once '../app/UserControl.php';
+$product = require_once '../app/ProductControl.php';
 
 $user_data = null;
 if (isset($_SESSION['user_id'])) {
@@ -9,13 +13,16 @@ if (isset($_SESSION['user_id'])) {
 } else {
     $_SESSION["mode"] = "guest";
 }
+
+//$dev_boards_list = getTopProducts('dev-board');
+//$modules_list = getTopProducts('modules'); 
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/index.css?v=11" />
+        <link rel="stylesheet" href="css/index.css?v=12" />
         <link rel="stylesheet" href="css/navbar.css?v=12" />
         <link rel="stylesheet" href="css/buttons.css?v=12" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
@@ -75,6 +82,7 @@ if (isset($_SESSION['user_id'])) {
                     <div class="product-card">
                         <img src="../images/dev-boards/arduino-nano-33.jpg">
                         <p>Arduino nano 33</p>
+                        <p>Available: 10</p>
                         <button class="buttons">Add to cart</button>
                     </div>
                 </div>
@@ -92,6 +100,7 @@ if (isset($_SESSION['user_id'])) {
                         <button class="buttons">Add to cart</button>
                     </div>
                 </div>
+
             </div>
             <h2>Featured Modules</h2>
             <div class="modules">
@@ -118,7 +127,7 @@ if (isset($_SESSION['user_id'])) {
                 </div>
             </div>
         </div>
-                <!-- NOTE: 
+        <!-- NOTE: 
         To add a function which gets the top 3 most sold items.
         
         Also feature top 3 sold modules.

@@ -58,7 +58,7 @@ body {
 
 /* Cart Container */
 .cart-container {
-    border: 1px solid #ddd;
+    border: 1px solid hsl(0, 0%, 87%);
     border-bottom: none;
     border-radius: 8px;
     overflow: hidden;

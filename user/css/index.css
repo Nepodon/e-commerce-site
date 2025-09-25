@@ -54,12 +54,13 @@ body::-webkit-scrollbar{
     margin-top: 0.2em;
     margin-bottom: 0.2em;
     text-align: center;
+    margin-bottom: .5rem;
 }
 .shop-now .buttons {
     width: 8%;
     height: 2.8rem;
     display: block;
-    margin: 2em auto;
+    margin: 1.5em auto;
 }
 .featured-products {
     height: fit-content;
@@ -68,9 +69,15 @@ body::-webkit-scrollbar{
     display: flex;
     flex-direction: column;
 }
+.featured-products h2{
+    margin: 0 3rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
 .boards, .modules{
     display: flex;
     float: left;
+    margin-bottom: 40px;
 }
 .products {
     margin-left: 40px;
