@@ -2,20 +2,16 @@
 session_start();
 
 require_once '../app/function.php';
-
 $user = require_once '../app/UserControl.php';
-$product = require_once '../app/ProductControl.php';
+
 
 $user_data = null;
-if (isset($_SESSION['user_id'])) {
-    $res = $user->getUserData($_COOKIE['email']);
+
+if (isset($_SESSION["user_id"])) {
+    $res = $user->getUserData($_COOKIE["email"]);
     $user_data = $res->fetch_assoc();
-} else {
-    $_SESSION["mode"] = "guest";
 }
 
-//$dev_boards_list = getTopProducts('dev-board');
-//$modules_list = getTopProducts('modules'); 
 ?>
 <!DOCTYPE html>
 <html>
