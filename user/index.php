@@ -96,8 +96,22 @@ if (isset($_SESSION["user_id"])) {
                         <button class="buttons">Add to cart</button>
                     </div>
                 </div>
-
+                <div class="products">
+                    <div class="product-card">
+                        <img src="../images/dev-boards/arduino-nano-33.jpg">
+                        <p>Arduino nano 33</p>
+                        <button class="buttons">Add to cart</button>
+                    </div>
+                </div>
+                <div class="products">
+                    <div class="product-card">
+                        <img src="../images/dev-boards/arduino-nano-33.jpg">
+                        <p>Arduino nano 33</p>
+                        <button class="buttons">Add to cart</button>
+                    </div>
+                </div>
             </div>
+
             <h2>Featured Modules</h2>
             <div class="modules">
                 <div class="products">
@@ -123,11 +137,12 @@ if (isset($_SESSION["user_id"])) {
                 </div>
             </div>
         </div>
+
         <!-- NOTE: 
         To add a function which gets the top 3 most sold items.
         
         Also feature top 3 sold modules.
-         -->
+        -->
         <footer>
             <p><a href="mailto:absj@gmail.com">absj@gmail.com</a></p>
         </footer>
