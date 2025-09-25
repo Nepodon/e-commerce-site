@@ -1,10 +1,8 @@
 <?php 
 session_start();
 
-require_once '../app/function.php';
-require_once '../app/ProductControl.php';
-$user = require_once '../app/UserControl.php';
-$productControl = new ProductControl();
+$user = require_once '../app/User.php';
+$productControl = require_once '../app/Product.php';;
 
 $user_data = null;
 

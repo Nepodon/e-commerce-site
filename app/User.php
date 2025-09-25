@@ -2,7 +2,7 @@
 
 require_once 'DBcontrol.php';
 
-final class UserControl extends DBcontrol {
+final class User extends DBcontrol {
     public function getUserData($email): bool | mysqli_result {
         $email = $this->mysqli->real_escape_string($email);
         $sql = "SELECT * FROM users WHERE email = '$email'";
@@ -66,4 +66,4 @@ final class UserControl extends DBcontrol {
     }
 }
 
-return new UserControl();
+return new User();

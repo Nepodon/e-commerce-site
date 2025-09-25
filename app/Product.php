@@ -2,7 +2,7 @@
 
 require_once "DBcontrol.php";
 
-class ProductControl extends DBcontrol {
+class Product extends DBcontrol {
     public function getProductById(int $product_id): array | bool {
         $sql = "SELECT * FROM products WHERE product_id = '$product_id'";
         $result = $this->mysqli->query($sql);
@@ -17,3 +17,4 @@ class ProductControl extends DBcontrol {
         return $this->mysqli->query($sql);
     }
 }
+return new Product();

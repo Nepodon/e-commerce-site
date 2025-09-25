@@ -24,7 +24,7 @@ if(strlen($_POST['password']) > 20){
 if($_POST["password"] !== $_POST["password_confirmation"]) {
     die("Passwords must match");
 }
-$user = require '../app/UserControl.php';
+$user = require '../app/User.php';
 
 $username = $_POST['username'];
 $phone = $_POST['phone'];

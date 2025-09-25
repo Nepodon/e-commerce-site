@@ -1,16 +1,14 @@
 <?php
-$user = require_once '../app/UserControl.php';
+session_start();
+$user = require_once '../app/User.php';
 
 // Fetch user data
-    if(!isset($_SESSION['user_id'])) {
-        echo "<script>";
-        echo "alert('Please login to change aaccount details!');"; // Display the alert
-        echo "window.location.href = 'signin.php';"; // Redirect using JavaScript
-        echo "</script>";
-        exit();
-    }
+if(!isset($_SESSION['user_id'])) {
+    echo "Login to change account details! <a href='signin.php?ref" . urlencode("account.php") . "'>Signin here!</a>";
+    exit;
+}
 $user_id = $_SESSION['user_id'];
-$res = $user->getUserDataById($user_id);
+$res = $user->getUserData($user_id);
 $data = $res ? $res->fetch_assoc() : null;
 
 // Handle form submission

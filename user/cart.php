@@ -5,8 +5,8 @@ if(!isset($_SESSION["user_id"])){
     exit;
 }
 
-$cart = require_once "../app/CartControl.php";
-$productControl = require_once "../app/ProductControl.php";
+$cart = require_once "../app/Cart.php";
+$productControl = require_once "../app/Product.php";
 
 // Handle quantity update
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['update_qty'])) {

@@ -1,7 +1,7 @@
 <?php
 
 require_once "DBcontrol.php";
-class CartControl  extends DBcontrol{
+class Cart extends DBcontrol{
     public function cartItems(int $user_id):mysqli_result | bool{
         $sql = "SELECT * FROM cart WHERE user_id = ?";
         $this->stmt = $this->mysqli->prepare($sql);
@@ -48,4 +48,4 @@ class CartControl  extends DBcontrol{
     }
 }
 
-return new CartControl();
+return new Cart();

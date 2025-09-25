@@ -1,6 +1,6 @@
 <?php
 session_start();
-$user = require "../app/UserControl.php";
+$user = require "../app/User.php";
 
 $is_valid = false;
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
