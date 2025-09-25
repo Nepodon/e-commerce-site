@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION["user_id"])){
-    echo "Please <a href='signin.php?ref=" . urlencode("cart.php") . "'>sign in</a> to view your cart.";
+    echo "Please <a href='signin.php?ref=cart.php'>sign in</a> to view your cart.";
     exit;
 }
 
