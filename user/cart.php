@@ -56,14 +56,18 @@ function showCartItems($cartItems, $productControl) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Cart</title>
+        <link rel="stylesheet" href="css/cart.css?v=123"> 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <link rel="stylesheet" href="css/cart.css">
+
     </head>
     <body>
         <nav>
-        <!-- For navigating to home and account settings-->
+            <h1>RETAILO</h1>
         </nav>
+    
         <div class="cart-container">
             <h1 style="text-align:center;">Your Cart</h1>
             <div class="cart">
@@ -74,24 +78,25 @@ function showCartItems($cartItems, $productControl) {
                     <span id="total">Total</span>
                 </div>
                 <?php 
+    
                 if ($cartItems && $cartItems->num_rows > 0) {
                     $subtotal = showCartItems($cartItems, $productControl);
                 } else {
                     echo "<p style='text-align:center;'>Your cart is empty.</p>";
                     $subtotal = 0;
-                }
-                ?>
+                } 
+                ?> 
             </div> 
             <div class="cart-summary">
                 <div class="summary-row">
                     <span>Subtotal:</span>
-                    <span>&#8377;<?= number_format($subtotal, 2) ?></span>
+                    <span>&#8377;<?=  number_format($subtotal, 2); ?></span>
                 </div>
                 <div class="summary-row grand-total">
                     <span>Grand total:</span>
-                    <span>&#8377;<?= number_format($subtotal * 1.10, 2) ?></span>
+                    <span>&#8377;<?=  number_format($subtotal * 1.10, 2) ?></span>
                 </div>
-                <?php if ($subtotal > 1000): ?>
+                <?php  if ($subtotal > 1000): ?>
                 <div class="free-shipping">
                     <p>Congrats, you're eligible for <b>Free Shipping</b></p>
                     <span class="material-symbols-outlined">local_shipping</span>
@@ -100,7 +105,7 @@ function showCartItems($cartItems, $productControl) {
                 <div>
                     <a href="payment.php"><button class="checkout-btn">Check out</button></a>
                 </div>  
-            </div>
-        </div>
+            </div> 
+        </div> 
     </body>
 </html>
