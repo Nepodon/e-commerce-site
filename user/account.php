@@ -30,17 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($address) {
         $success = $user->updateAddress($user_id, $address) && $success;
     }
-    if(strlen($_POST["password"]) < 8) {
+    if($password && strlen($_POST["password"]) < 8) {
         $success = false;
         $message = "Password must be at least 8 characters!";
     }
 
-    if($_POST['password'] === "password") {
+    if($password && $_POST['password'] === "password") {
         $success = false;
         $message = "Password cannot be 'password'!";
     }
 
-    if(strlen($_POST['password']) > 20){
+    if($password &&strlen($_POST['password']) > 20){
         $success = false;
         $message = "Password length shouldnt be more the 20 characters!";
     }

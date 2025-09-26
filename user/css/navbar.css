@@ -37,7 +37,7 @@ nav {
 }
 
 .user-features a:hover {
-    background-color: hsl(0, 0%, 90%);
+    background-color: var(--50);
 }
 
 .user-features a{
@@ -55,15 +55,15 @@ nav {
 }
 
 .menu-btn button {
-    background-color: var(--50);
     border: none;
     cursor: pointer;
     padding: 8px;
+    background-color: hsl(0, 0%, 90%);
 }
 
 .menu-btn button:hover {
     border: none;
-    background-color: hsl(0, 0%, 90%);
+    background-color: var(--50);
 }
 
 .side-panel {

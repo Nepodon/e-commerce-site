@@ -85,15 +85,11 @@ function showCartItems($cartItems, $productControl) {
             <div class="cart-summary">
                 <div class="summary-row">
                     <span>Subtotal:</span>
-                    <span>$<?= number_format($subtotal, 2) ?></span>
-                </div>
-                <div class="summary-row">
-                    <span>Sales Tax:</span>
-                    <span>$<?= number_format($subtotal * 0.10, 2) ?></span>
+                    <span>&#8377;<?= number_format($subtotal, 2) ?></span>
                 </div>
                 <div class="summary-row grand-total">
                     <span>Grand total:</span>
-                    <span>$<?= number_format($subtotal * 1.10, 2) ?></span>
+                    <span>&#8377;<?= number_format($subtotal * 1.10, 2) ?></span>
                 </div>
                 <?php if ($subtotal > 1000): ?>
                 <div class="free-shipping">
