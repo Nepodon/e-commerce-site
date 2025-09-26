@@ -21,16 +21,14 @@ $featuredModules = $productControl->getProductSales('module');
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/index.css?v=12" />
-        <link rel="stylesheet" href="css/navbar.css?v=12" />
-        <link rel="stylesheet" href="css/buttons.css?v=12" />
+        <link rel="stylesheet" href="css/index.css?v=<?= time() ?>" />
+        <link rel="stylesheet" href="css/navbar.css?v=<?= time() ?>" />
+        <link rel="stylesheet" href="css/buttons.css?v=<?= time() ?>" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <title>Retailo</title>
         <style>
-            html {
-                color: hsl(0, 0%, 10%);
-            }
+  
         </style>
         <script>
             function openPanel(){
@@ -45,7 +43,7 @@ $featuredModules = $productControl->getProductSales('module');
     <body>
         <nav>
             <h1>RETAILO</h1>
-            <div id="#menu">
+            <div id="menu">
                 <div class="user-features">
                     <a href="account.php"><span class="material-symbols-outlined">account_circle</span></a>
                     <a href="cart.php"><span class="material-symbols-outlined">shopping_bag</span></a>
@@ -58,7 +56,7 @@ $featuredModules = $productControl->getProductSales('module');
                     <a href="#">Contact</a>
                 </div>
                 <div class="menu-btn">
-                    <button class="menu" onclick="openPanel()"><span class="material-symbols-outlined">menu</span></button>  
+                    <button  onclick="openPanel()"><span class="material-symbols-outlined">menu</span></button>  
                 </div>
 
             </div>

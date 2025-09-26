@@ -30,12 +30,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($address) {
         $success = $user->updateAddress($user_id, $address) && $success;
     }
-    if($password) {
+    if(strlen($_POST["password"]) < 8) {
+        $success = false;
+        $message = "Password must be at least 8 characters!";
+    }
+
+    if($_POST['password'] === "password") {
+        $success = false;
+        $message = "Password cannot be 'password'!";
+    }
+
+    if(strlen($_POST['password']) > 20){
+        $success = false;
+        $message = "Password length shouldnt be more the 20 characters!";
+    }
+    if($password ) {
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         $success = $user->updatePassword($user_id, $password_hash) && $success;
     }
     // $success = false;
-    $message = $success ? "Details updated successfully." : "Failed to update details.";
+    $message .= $success ? "Details updated successfully." : "  Failed to update details.";
     // Refresh data
 }
 $res = $user->getUserData($user_id);
@@ -72,14 +86,13 @@ $data = $res ? $res->fetch_assoc() : null;
             box-shadow: 0 2px 20px 0 rgba(0,0,0,0.4);
             background: hsl(0, 0%, 95%);
         }
-        .account-form label { 
-            display: block; 
-            margin-top: 1em; 
-        }
-        .account-form input { 
-            width: 65%; 
-            padding: 0.5em; 
-            margin-top: 0.2em; 
+        .account-form label,
+        .account-form input {
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            height: 1.5rem;
+            margin: 0.5rem auto;
         }
         .account-form .buttons { 
             display: block;
@@ -98,7 +111,7 @@ $data = $res ? $res->fetch_assoc() : null;
         <?php if ($message && $success  ): ?>
             <div class="success-message"><?= htmlspecialchars($message) ?></div>
         <?php else:  ?>
-            <div class="error-message"><?= htmlspecialchars($message) ?></div>    
+            <div class="error-message"><?= htmlspecialchars($message) ?></div>   
         <?php endif; ?>
         <form method="post">
             <label for="username">Name</label>

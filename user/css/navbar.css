@@ -1,50 +1,72 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    
+    color: hsl(0, 0%, 10%); 
+}
 
-nav{
-    width: inherit;
+nav {
+    width: 100%;
     height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 16px;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
-#menu{
+#menu {
     display: flex;
     float: right;
 }
 
-.user-features a{
+.user-features a {
     text-decoration: none;
     width: 35px;
     height: 30px;
-    color: hsl(0,0%,10%);
+    color: hsl(0, 0%, 10%);
     font-size: 1.5rem;
     margin: auto;
 }
-.user-features a span{
+
+.user-features a span {
     display: flex;
     height: 100%;
     font-size: 1.8rem;
     justify-content: center;
 }
-.user-features a:hover span{
+
+.user-features a:hover {
     background-color: hsl(0, 0%, 90%);
 }
-.user-features, 
-.menu-btn{
+
+.user-features a{
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    float: left;
+    padding: 8px; 
+}
+.menu-btn {
     display: flex;
     gap: 0.5rem;
     font-size: 1.5rem;
     float: left;
 }
-.menu-btn button{
+
+.menu-btn button {
     background-color: var(--50);
     border: none;
+    cursor: pointer;
+    padding: 8px;
 }
-.menu-btn button:hover{
-    background-color:transparent;
+
+.menu-btn button:hover {
+    border: none;
+    background-color: hsl(0, 0%, 90%);
 }
-.side-panel{
+
+.side-panel {
     height: 100vh;
     width: 30vh;
     z-index: 1;
@@ -52,9 +74,10 @@ nav{
     display: none;
     top: 0;
     right: 0;
-    background-color: hsl(0,0%,10%);
+    background-color: hsl(0, 0%, 10%);
     transition: 0.5s ease-in;
 }
+
 .side-panel a {
     display: block;
     text-decoration: none;
@@ -62,13 +85,16 @@ nav{
     padding: 16px;
     color: hsl(0, 0%, 90%);
 }
+
 .side-panel a:hover {
-    color: hsl(0,0%,10%);
-    background-color: hsl(0,0%,90%);
+    color: hsl(0, 0%, 10%);
+    background-color: hsl(0, 0%, 90%);
 }
+
 .side-panel a:first-child {
     margin-top: 30%;
 }
+
 .menu-btn {
     background: var(--50);
 }
