@@ -57,17 +57,14 @@ function showCartItems($cartItems, $productControl) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your Cart</title>
-        <link rel="stylesheet" href="css/cart.css?v=123"> 
+        <link  rel="stylesheet" href="css/cart.css?v=12">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-        <link rel="stylesheet" href="css/cart.css">
-
     </head>
     <body>
         <nav>
             <h1>RETAILO</h1>
         </nav>
-    
         <div class="cart-container">
             <h1 style="text-align:center;">Your Cart</h1>
             <div class="cart">
