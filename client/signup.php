@@ -83,15 +83,15 @@ if($status === 'error'){
                 </div>
                 <div class="signup-row">
                     <label for="phone">Phone with country code</label>
-                    <input name="phone" type="tel" required>
+                    <input id="phone" name="phone" type="tel" required>
                 </div>
                 <div class="signup-row">
                     <label for="email">Email</label>
-                    <input name="email" type="text" required>
+                    <input id="email" name="email" type="text" required>
                 </div>
                 <div class="signup-row">
                     <label for="address">Address</label>
-                    <input name="address" type="addr" required>
+                    <input id="address" name="address" type="addr" required>
                 </div>
                 <div class="signup-row">
                     <label for="password">Password</label>

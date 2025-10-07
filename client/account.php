@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if($password &&strlen($_POST['password']) > 20){
         $success = false;
-        $message = "Password length shouldnt be more the 20 characters!";
+        $message = "Password length shouldn't be more than 20 characters!";
     }
     if($password ) {
         $password_hash = password_hash($password, PASSWORD_DEFAULT);

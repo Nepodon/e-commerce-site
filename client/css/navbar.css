@@ -1,7 +1,6 @@
 html, body {
     margin: 0;
     padding: 0;
-    
     color: hsl(0, 0%, 10%); 
 }
 
@@ -11,8 +10,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
-    box-sizing: border-box;
+    gap: 1.5rem;
+    padding: 1rem;
+    background-color:var(--50);
 }
 
 #menu {
@@ -36,9 +36,7 @@ nav {
     justify-content: center;
 }
 
-.user-features a:hover {
-    background-color: var(--50);
-}
+
 
 .user-features a{
     display: flex;
@@ -58,12 +56,11 @@ nav {
     border: none;
     cursor: pointer;
     padding: 8px;
-    background-color: hsl(0, 0%, 90%);
+    background-color: var(--50);
 }
 
 .menu-btn button:hover {
     border: none;
-    background-color: var(--50);
 }
 
 .side-panel {
@@ -88,7 +85,7 @@ nav {
 
 .side-panel a:hover {
     color: hsl(0, 0%, 10%);
-    background-color: hsl(0, 0%, 90%);
+    background-color: hsl(0, 0%, 80%);
 }
 
 .side-panel a:first-child {

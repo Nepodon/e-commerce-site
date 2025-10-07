@@ -17,7 +17,7 @@ $categories = $productControl->getCategories(); // Should return array or null
         body {
             font-family: 'Funnel Sans', serif;
         }
-        .prodcuts-container {
+        .products-container {
             width: 80%;
             margin: auto;
         }

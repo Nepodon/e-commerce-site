@@ -18,7 +18,7 @@ if($_POST['password'] === "password") {
 }
 
 if(strlen($_POST['password']) > 20){
-    die("Password length shouldnt be more the 20 characters");
+    die("Password length shouldn't be more than 20 characters");
 }
 
 if($_POST["password"] !== $_POST["password_confirmation"]) {
@@ -40,7 +40,7 @@ if($user->isValidUser($email)){
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 $user_id = $user->insertUserData($username, $phone, $address, $email, $password_hash);
 if(!$user_id){
-    header('Location: signup.php');
+    header('Location: signup.php?status=error');
     exit;
 }
 

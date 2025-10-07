@@ -2,7 +2,7 @@
 session_start();
 
 $user = require_once '../app/User.php';
-$productControl = require_once '../app/Product.php';;
+$productControl = require_once '../app/Product.php';
 
 $user_data = null;
 
@@ -50,10 +50,8 @@ $featuredModules = $productControl->getProductSales('module');
                 </div>
                 <div id="side-panel" class="side-panel">
                     <a href="javascript:void(0)" class="closebtn" onclick="closePanel()">&times;</a>
-                    <a href="#">Catalog</a>
+                    <a href="#"></a>
                     <a href="">Products</a>
-                    <a href="#">None</a>
-                    <a href="#">Contact</a>
                 </div>
                 <div class="menu-btn">
                     <button  onclick="openPanel()"><span class="material-symbols-outlined">menu</span></button>  

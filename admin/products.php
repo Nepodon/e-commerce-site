@@ -127,19 +127,10 @@ $products = $product_obj->getAllProducts();
                     <span><p>50</p></span>
                     <span><p>&#8377;19.99</p></span>
                     <span>
-                        <button><a href="">Edit</a></button>
-                        <button onclick="DeleteRequest()">Delete</button>
-                    </span>
-                </div>
-                <div class="product-row">
-                    <span><p>Product 2</p></span>
-                    <span><p>Category B</p></span>
-                    <span><p>30</p></span>
-                    <span><p>&#8377;29.99</p></span>
-                    <span>
-                        <button>Edit</button>
+                        <button><a href="#">Edit</a></button>
                         <button>Delete</button>
                     </span>
+                </div>
             </div>
         </div>
     </body>
