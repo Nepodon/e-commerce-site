@@ -2,6 +2,9 @@
 
 $product_obj = require_once '../app/Product.php';
 
+$products = $product_obj->getAllProducts();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +38,20 @@ $product_obj = require_once '../app/Product.php';
             nav * {
                 display: inline;
             }
+            .heading-section {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+            .action {
+                text-decoration: none;
+                color: black;
+            }
+            .action:hover{
+                color: hsl(0, 0%, 60%);
+                text-decoration: underline; 
+            }
             .products-container {
                 margin: 2rem;
                 padding: 2rem;
@@ -56,6 +73,10 @@ $product_obj = require_once '../app/Product.php';
                 width: 100%;
                 height: 3rem;
                 padding: 1rem  2rem;
+                border-bottom: 1px solid var(--800);    
+            }
+            .product-row:last-child{
+                border-bottom: none;
             }
             .list-header span{
                 width: 19%; 
@@ -88,7 +109,10 @@ $product_obj = require_once '../app/Product.php';
             </div>
         </nav>
         <div class="products-container">
-            <h3>Products list</h3>
+            <div class="heading-section">
+                <h2>Products list</h2>
+                <h4><a  class="action" href="add_product.php">Add Product</a></h4>
+            </div>
             <div class="product-list">
                 <div class="list-header">
                     <span>Name</span>
@@ -103,10 +127,19 @@ $product_obj = require_once '../app/Product.php';
                     <span><p>50</p></span>
                     <span><p>&#8377;19.99</p></span>
                     <span>
+                        <button><a href="">Edit</a></button>
+                        <button onclick="DeleteRequest()">Delete</button>
+                    </span>
+                </div>
+                <div class="product-row">
+                    <span><p>Product 2</p></span>
+                    <span><p>Category B</p></span>
+                    <span><p>30</p></span>
+                    <span><p>&#8377;29.99</p></span>
+                    <span>
                         <button>Edit</button>
                         <button>Delete</button>
                     </span>
-                </div>
             </div>
         </div>
     </body>
