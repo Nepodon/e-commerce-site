@@ -1,7 +1,5 @@
 <?php
 
-use Dom\DocumentType;
-
 $products = require_once '../app/Product.php';
 $image = require_once '../app/Image.php';
 

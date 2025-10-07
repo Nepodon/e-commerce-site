@@ -1,4 +1,4 @@
-@import url('../color-palette.css');
+@import url('color-palette.css');
 /* Icons and fonts*/
 #display-card-icons{
     display: flex;
@@ -20,13 +20,13 @@
   'opsz' 24
 }
 
-
-.merriweather-sans{
-  font-family: 'Merriweather-sans', sans-serif;
+.funnel-sans {
+  font-family: "Funnel Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
+
 /*Desgins*/
 *,
 *::before,
@@ -38,13 +38,13 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: var(--50);
-    font-family: 'Merriweather', sans-serif;
+    font-family: 'Funnel Sans';
+    background-color: hsl(0, 0%, 87%);
 }
 nav{
-
+    background-color: var(--50);
     width: 100%;
-    height: 10%;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;

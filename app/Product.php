@@ -38,5 +38,9 @@ class Product extends DBcontrol {
         }
         return false;
     }
+    public function deleteProduct($product_id): bool {
+        $sql = "DELETE FROM products WHERE product_id = '$product_id'";
+        return $this->mysqli->query($sql);
+    }
 }
 return new Product();

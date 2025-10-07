@@ -1,0 +1,30 @@
+<span>
+    <select class="status-dropdown" id="status-form">
+        <option value="active" selected>Active</option>
+        <option value="inactive">Inactive</option>
+    </select>
+</span>
+
+            .status-active{
+                width: 16%;
+                color: green;
+                font-weight: bold;
+            }
+            .status-inactive{
+                width: 16%;
+                text-align: center;
+                color: red;
+                font-weight: bold;
+            }
+            .dropdown{
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                padding: 0.2rem;
+            }
+            .status-dropdown option[value="active"] {
+                color: green;
+            }
+            .status-dropdown option[value="inactive"] {
+                color: red;
+            }
