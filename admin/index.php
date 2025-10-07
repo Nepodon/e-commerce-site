@@ -21,6 +21,13 @@
                 <a href="users.php">Users</a>
             </div>
         </nav>
-        
+        <!--
+            Ideas to ADD
+
+            1. Shortened view of orders.
+            eg: Number of new orders, Total orders, and revenue.
+
+            2. Number of products and users.
+        -->
     </body>
 </html>

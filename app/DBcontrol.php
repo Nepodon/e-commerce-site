@@ -11,7 +11,7 @@ class DBcontrol extends mysqli{
     {   
         $this->mysqli =  new mysqli($this->host, $this->user, $this->password, $this->db);
         if($this->connect_error){
-            die('Connection Failed\n Error Message: '. $this->connect_error);
+            print('Connection Failed\n Error Message: '. $this->connect_error);
         }
     }
 }
