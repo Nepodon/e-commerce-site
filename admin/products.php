@@ -1,13 +1,45 @@
 <?php
 
-$product_obj = require_once '../app/Product.php';
+require_once '../app/Product.php';
+
+$message  = "";
 
 $products = get_all_products();
+$i = 0;
 if($products->num_rows > 0) {
-    // convert to associative array or other methods
+    while($row = $products->fetch_assoc()) {
+        $products_list[] = [
+            "name" => $row['name'],
+            "category" => $row['category'],
+            "stock" => $row['stock'],
+            "price" => $row['price'],
+            "created_at" => $row['created_at']
+        ];
+        $i++;
+    }
 } else {
-    // what to handle???
+    $counter = 0;
+    $message = "No products found. Fetch error?";
 }
+$counter = $i;
+function list_products(int $counter, $product_list ) {
+    global $products_list;
+    $i = 0; $j = 0;
+    for(; $i < $counter; $i++) {
+        echo '<div class="product-row">
+            <span><p>'.$products_list[$i]['name'].'</p></span>
+            <span><p>'.$products_list[$i]['category'].'</p></span>
+            <span><p>'.$products_list[$i]['stock'].'</p></span>
+            <span><p>&#8377;'.$products_list[$i]['price'].'</p></span>
+            <span><p>'.$products_list[$i]['created_at'].'</p></span>
+            <span>
+                <button>Edit</button>
+                <button>Delete</button>
+            </span>
+        
+        </div>';
+    }
+}   
 
 ?>
 <!DOCTYPE html>
@@ -83,7 +115,7 @@ if($products->num_rows > 0) {
                 border-bottom: none;
             }
             .list-header span{
-                width: 19%; 
+                width: 16%; 
                 display: inline-block;
                 font-weight: bold;
                 text-align: left;
@@ -91,7 +123,7 @@ if($products->num_rows > 0) {
             }
 
             .product-row span{
-                width:19%; 
+                width:16%; 
                 padding: 0 0.4rem;
                 height: 1.5rem;
                 display: inline-block;
@@ -123,9 +155,10 @@ if($products->num_rows > 0) {
                     <span>Category</span>
                     <span>Stock</span>
                     <span>Price</span>
+                    <span>Date Added</span>
                     <span>Actions</span><!-- edit/delete -->
                 </div> 
-                <div class="product-row">
+<!--                <div class="product-row">
                     <span><p>Product 1</p></span>
                     <span><p>Category A</p></span>
                     <span><p>50</p></span>
@@ -135,6 +168,14 @@ if($products->num_rows > 0) {
                         <button>Delete</button>
                     </span>
                 </div>
+        -->
+                <?php
+                if($message) {
+                    echo '<div class="product-row"><span><p>'.$message.'</p></span></div>';
+                } else {
+                    list_products($counter,$products_list);
+                }
+                ?>
             </div>
         </div>
     </body>

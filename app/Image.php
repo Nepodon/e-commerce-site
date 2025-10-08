@@ -25,21 +25,16 @@ function get_image_type($product_id) {
     return null;
 }
 
-function add_image($image_name, $type, $image) {
+function add_image($image_name, $ref_id,$type, $image) {
 
     $db_obj = new DBcontrol();
-    $image_binary = null;
 
-    $query = "INSERT INTO image (image_name, type, image_binary) 
-              VALUES (?, ?, ?)";
+    $query = "INSERT INTO image (image_name, ref_id,type, image_binary) 
+              VALUES (?, ?,?, ?)";
     $stmt = $db_obj->prepare($query);
-    $stmt->bind_param("ssb", $image_name, $type, $image_binary);
-    $image_binary = file_get_contents($image);
-    $stmt->send_long_data(2, $image_binary);
-    if($stmt->execute()) {
-        return true;
-    }
-    return false;
+    $stmt->bind_param("sisb", $image_name, $ref_id,$type, $image_binary);
+    $stmt->send_long_data(3, $image_binary);
+    return $stmt->execute();
 }
 
 function delete_image($product_id) {

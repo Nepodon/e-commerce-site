@@ -7,9 +7,11 @@ function add_product($name, $category, $description, $price, $stock): bool {
     $sql = "INSERT INTO products (name, category, description, price, stock) VALUES (?, ?, ?, ?, ?)";
     $stmt = $db->prepare($sql);
     $stmt->bind_param("sssdi", $name, $category, $description, $price, $stock);
-    $result = $stmt->execute();
+    if($stmt->execute()) {
+        return $stmt->insert_id;
+    }
     $stmt->close();
-    return $result;
+    return false;
 }
 
 function get_product_by_id(int $product_id) {
