@@ -2,18 +2,37 @@
 
 require_once 'DBcontrol.php';
 
-function get_user_data($email) {
+function get_userdata_id($id) {
     $db = new DBcontrol();
-    $email = $db->real_escape_string($email);
-    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $email = $db->real_escape_string($id);
+    $sql = "SELECT * FROM users WHERE id = '$id'";
     $res = $db->query($sql);
     return $res;
 }
-
-function is_valid_user($email) {
+function get_userdata_email($email){
     $db = new DBcontrol();
-    $email = $db->real_escape_string($email);
+    $email = $db->real_escape_string($email); 
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $res = $db->query($sql);
+    $data = $res->fetch_assoc();
+    if($data) {
+        return $data;
+    } else {
+        return false;
+    }
+}
+
+function is_valid_email($email) {
+    $db = new DBcontrol();
+    $email = $db->real_escape_string($email); 
     $sql = "SELECT id FROM users WHERE email = '$email'";
+    $res = $db->query($sql);
+    return ($res && $res->num_rows > 0);
+}
+function is_valid_phone($phone) {
+    $db = new DBcontrol();
+    $phone = $db->real_escape_string($phone);
+    $sql = "SELECT id FROM users WHERE phone = '$phone'";
     $res = $db->query($sql);
     return ($res && $res->num_rows > 0);
 }

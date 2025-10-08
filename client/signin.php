@@ -1,21 +1,21 @@
 <?php
 session_start();
-$user = require "../app/User.php";
+require_once "../app/User.php";
 
 $is_valid = false;
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $password = $_POST['password'];
     
-    $res = $user->getUserData($_POST['email']);
-    $user_data = $res->fetch_assoc();
-    if($user_data){
+    if($user_data = get_userdata_email($_POST['email'])){
         if(password_verify($password, $user_data['password'])){
             $_SESSION['user_id'] = $user_data['id'];
             $redirect = isset($_GET['ref']) ? $_GET['ref'] : "index.php";   
             header("Location: $redirect");
             exit;
         }
+    } else {
+        echo "fetch error!";
     }
     $is_valid = true;
 }
@@ -29,10 +29,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="css/buttons.css?v=12">
     <title>Retailo Signin</title>
     <style>
-        @import url('color.css');
+        @import url('css/color.css?v=12');
         body {
             font-family: "Arvo";
-            background: var(--50);
+            background: hsl(0, 0%, 87%);
             display:flex;
             justify-content: center;
             flex-direction: column;
@@ -50,6 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             overflow: hidden;
             box-shadow: 0 25px 50px 0 rgba(0,0,0,0.5);
             border: solid 1px black;
+            background-color: hsl(0, 0%, 100%);
         
         }
         .login-img{
@@ -78,7 +79,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             width: 80%;
             height: 30px;
             margin: 10px;
-            border-radius: 10px;
             border:1px solid black;
         }
         .buttons{

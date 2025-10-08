@@ -3,10 +3,9 @@
 require_once 'DBControl.php';
 
 
-function get_image($image_name) {
+function get_image($product_id) {
     $db_obj = new DBcontrol();
-    $query = sprintf("SELECT * FROM image WHERE image_name = '%s'",
-             $db_obj->escape_string($image_name));
+    $query = "SELECT * FROM image WHERE image_name = '$product_id'";
     $result = $db_obj->query($query);
     if($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -14,11 +13,10 @@ function get_image($image_name) {
     }
     return null;
 }
-function get_image_type($image_name) {
+function get_image_type($product_id) {
     
     $db_obj = new DBcontrol();
-    $query = sprintf("SELECT type, image_binary FROM image WHERE image_name = '%s'",
-             $db_obj->escape_string($image_name));
+    $query = "SELECT type, image_binary FROM image WHERE image_name = '$product_id'";
     $result = $db_obj->query($query);
     if($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -44,10 +42,9 @@ function add_image($image_name, $type, $image) {
     return false;
 }
 
-function delete_image($image_name) {
+function delete_image($product_id) {
     $db_obj = new DBcontrol();
-    $query = sprintf("DELETE FROM image WHERE image_name = '%s'",
-             $db_obj->escape_string($image_name));
+    $query = "DELETE FROM image WHERE product_id = '$product_id'";
     $result = $db_obj->query($query);
     if($result) {
         return true;

@@ -2,8 +2,12 @@
 
 $product_obj = require_once '../app/Product.php';
 
-$products = $product_obj->getAllProducts();
-
+$products = get_all_products();
+if($products->num_rows > 0) {
+    // convert to associative array or other methods
+} else {
+    // what to handle???
+}
 
 ?>
 <!DOCTYPE html>

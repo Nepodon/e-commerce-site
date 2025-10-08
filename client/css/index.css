@@ -71,16 +71,7 @@ body{
     display: flex;
     flex-direction: column;
 }
-.featured-products h2{
-    margin: 0 0 0 2rem;
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-}
-.boards, .modules{
-    display: flex;
-    float: left;
-    margin-bottom: 40px;
-}
+
 .products {
     margin-left: 40px;
     display: grid;

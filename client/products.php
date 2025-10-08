@@ -1,9 +1,8 @@
 <?php
 session_start();
-$productControl = require_once '../app/Product.php';
+require_once '../app/Product.php';
 
-// Fetch all categories
-$categories = $productControl->getCategories(); // Should return array or null
+// Fetch all categories// Should return array or null
 
 ?>
 <!DOCTYPE html>

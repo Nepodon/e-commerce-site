@@ -24,7 +24,7 @@ if(strlen($_POST['password']) > 20){
 if($_POST["password"] !== $_POST["password_confirmation"]) {
     die("Passwords must match");
 }
-$user = require '../app/User.php';
+require '../app/User.php';
 
 $username = $_POST['username'];
 $phone = $_POST['phone'];
@@ -33,19 +33,22 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 
-if($user->isValidUser($email)){
-    die("User already exists. Please login<a href='login.php'>Login here</a>");
+
+if(is_valid_email($email)){
+    die("Email already exists. Please login<a href='login.php'>Login here</a> or use another email.");
+}
+if(is_valid_phone($phone)){
+    die("Phone number already exists. Please login<a href='login.php'>Login here</a> or use another phone number.");
 }
 
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
-$user_id = $user->insertUserData($username, $phone, $address, $email, $password_hash);
+$user_id = insert_user_data($username, $phone, $address, $email, $password_hash);
 if(!$user_id){
     header('Location: signup.php?status=error');
     exit;
 }
 
-
 $_SESSION['user_id'] = $user_id;
 header('Location: signup-success.php');
-
+exit;
 ?>

@@ -8,8 +8,13 @@ if(!isset($_SESSION['user_id'])) {
     exit;
 }
 $user_id = $_SESSION['user_id'];
-$res = $user->getUserData($user_id);
-$data = $res ? $res->fetch_assoc() : null;
+$res = get_userdata_id($user_id);
+if($res) {
+    $data = $res->fetch_assoc();
+} else {
+    echo "Error fetching user data.";
+    exit;
+}
 
 // Handle form submission
 $message = "";
@@ -52,8 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $message .= $success ? "Details updated successfully." : "  Failed to update details.";
     // Refresh data
 }
-$res = $user->getUserData($user_id);
-$data = $res ? $res->fetch_assoc() : null;
+$res = get_userdata_id($user_id);
+if($res) {
+    $data = $res->fetch_assoc();
+} else {
+    echo "Error fetching user data.";
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,9 +75,21 @@ $data = $res ? $res->fetch_assoc() : null;
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Account Settings</title>
     <style>
+        @import url('css/color.css');
         body { 
+            padding: 0;
+            margin: 0;
             font-family: "Funnel Sans", serif;
             background-color: hsl(0, 0%, 87%);
+        }
+
+        nav {
+            height: 8vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--50);
         }
         .success-message {
             color: green; 
@@ -77,14 +99,19 @@ $data = $res ? $res->fetch_assoc() : null;
             color: red; 
             margin-bottom: 1em;
         }
+
         .account-form { 
-            max-width: 30%; 
+            width: 30%; 
             margin: 2rem auto; 
             padding: 2em; 
             border: 1px solid #ccc; 
             border-radius: 8px; 
             box-shadow: 0 2px 20px 0 rgba(0,0,0,0.4);
             background: hsl(0, 0%, 95%);
+        }
+        .account-form h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
         }
         .account-form label,
         .account-form input {
@@ -106,8 +133,16 @@ $data = $res ? $res->fetch_assoc() : null;
     </style>
 </head>
 <body>
+    <nav>
+        <div>
+            <h1 ><a style="text-decoration: none; color: black;" href="index.php">RETAILO</a></h1>
+        </div>
+        <div>
+            <h3>Account Settings</h3>
+        </div>
+    </nav>
     <div class="account-form">
-        <h1 style="text-align: center; margin-bottom: 2rem  ;">Account Settings</h1>
+        <h2>Update account details</h2>
         <?php if ($message && $success  ): ?>
             <div class="success-message"><?= htmlspecialchars($message) ?></div>
         <?php else:  ?>
@@ -115,7 +150,7 @@ $data = $res ? $res->fetch_assoc() : null;
         <?php endif; ?>
         <form method="post">
             <label for="username">Name</label>
-            <input type="text" id="username" name="username" placeholder="<?= $data['name'] ?? 'Username' ?> cannot be changed" disabled>
+            <input type="text" id="username" name="username" placeholder="Username cannot be changed" disabled>
             <label for="email">Email</label>
             <input type="email" id="email" name="email" >
 

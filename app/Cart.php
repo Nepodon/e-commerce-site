@@ -32,40 +32,40 @@ function add_item(int $cart_id, int $user_id, int $product_id, int $quantity = 1
     return $result;
 }
 
-function remove_item(int $cart_id, int $product_id) {
+function remove_item(int $user_id, int $product_id) {
     $db = new DBcontrol();
-    $sql = "DELETE FROM cart WHERE cart_id = ? AND product_id = ?";
+    $sql = "DELETE FROM cart WHERE user_id = ? AND product_id = ?";
     $stmt = $db->prepare($sql);
     if ($stmt === false) {
         return false;
     }
-    $stmt->bind_param("ii", $cart_id, $product_id);
+    $stmt->bind_param("ii", $user_id, $product_id);
     $result = $stmt->execute();
     $stmt->close();
     return $result;
 }
 
-function update_item_quantity(int $cart_id, int $product_id, int $new_quantity) {
+function update_item_quantity(int $user_id, int $product_id, int $new_quantity) {
     $db = new DBcontrol();
-    $sql = "UPDATE cart SET quantity = ? WHERE cart_id = ? AND product_id = ?";
+    $sql = "UPDATE cart SET quantity = ? WHERE user_id = ? AND product_id = ?";
     $stmt = $db->prepare($sql);
     if ($stmt === false) {
         return false;
     }
-    $stmt->bind_param("iii", $new_quantity, $cart_id, $product_id);
+    $stmt->bind_param("iii", $new_quantity, $user_id, $product_id);
     $result = $stmt->execute();
     $stmt->close();
     return $result;
 }
 
-function clear_cart(int $cart_id) {
+function clear_cart(int $user_id) {
     $db = new DBcontrol();
-    $sql = "DELETE FROM cart WHERE cart_id = ?";
+    $sql = "DELETE FROM cart WHERE user_id = ?";
     $stmt = $db->prepare($sql);
     if ($stmt === false) {
         return false;
     }
-    $stmt->bind_param("i", $cart_id);
+    $stmt->bind_param("i", $user_id);
     $result = $stmt->execute();
     $stmt->close();
     return $result;

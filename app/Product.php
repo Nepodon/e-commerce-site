@@ -60,6 +60,7 @@ function get_products_by_category($category) {
     return $result;
 }
 
+
 function delete_product($product_id): bool {
     $db = new DBcontrol();
     $sql = "DELETE FROM products WHERE product_id = ?";

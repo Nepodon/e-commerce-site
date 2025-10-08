@@ -1,8 +1,8 @@
 <?php
 
 $message = "";
-$products_obj = require_once '../app/Product.php';
-$image_obj = require_once '../app/Image.php';
+require_once '../app/Product.php';
+require_once '../app/Image.php';
 
 
 if(isset($_POST['add_product'])) {
@@ -16,9 +16,9 @@ if(isset($_POST['add_product'])) {
     $price= $_POST['price'];
     $stock= $_POST['stock'];
     if($name && $category && $description && $price && $stock && $image_file) {
-        $image_url = $image_obj->uploadImage($name, $image_type,$image_data);
+        $image_url = add_image($name, $image_type,$image_data);
         if($image_url) {
-            $products_obj->addProduct($name, $category, $description, $price, $stock, $image_url);
+            add_product($name, $category, $description, $price, $stock);
             $message = "Product added successfully.";
         } else {
             $message = "Failed to upload image.";

@@ -1,18 +1,32 @@
 <?php
 require_once 'config.php';
-class DBcontrol extends mysqli{
-    private $host = DB_HOST;
-    private $user = DB_USER;
-    private $password = DB_PASSWORD;
-    private $db = DB_NAME;
-    protected $mysqli; // Mysqli connection  to db
-    protected $stmt;   
-    function __construct()
-    {   
-        $this->mysqli =  new mysqli($this->host, $this->user, $this->password, $this->db);
-        if($this->connect_error){
-            print('Connection Failed\n Error Message: '. $this->connect_error);
+
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+class DBcontrol {
+    public $mysqli;
+
+    function __construct() {
+        $this->mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        if ($this->mysqli->connect_error) {
+            die('Database connection error: ' . $this->mysqli->connect_error);
         }
+    }
+
+    // Optionally, add helper methods to proxy to $this->mysqli
+    public function query($sql) {
+        return $this->mysqli->query($sql);
+    }
+    public function prepare($sql) {
+        return $this->mysqli->prepare($sql);
+    }
+    public function real_escape_string($str) {
+        return $this->mysqli->real_escape_string($str);
+    }
+    public function close() {
+        return $this->mysqli->close();
+    }
+    public function escape_string($str) {
+        return $this->mysqli->real_escape_string($str);
     }
 }
 ?>

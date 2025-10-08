@@ -5,30 +5,31 @@ if(!isset($_SESSION["user_id"])){
     exit;
 }
 
-$cart = require_once "../app/Cart.php";
-$productControl = require_once "../app/Product.php";
+require_once "../app/Cart.php";
+require_once "../app/Product.php";
 
 // Handle quantity update
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['update_qty'])) {
     $product_id = intval($_POST['product_id']);
     $new_qty = intval($_POST['quantity']);
     if ($new_qty > 0) {
-        $cart->updateCartQuantity($_SESSION["user_id"], $product_id, $new_qty);
+        update_item_quantity($_SESSION["user_id"], $product_id, $new_qty);
     } else {
-        $cart->removeFromCart($_SESSION["user_id"], $product_id);
+        remove_item($_SESSION["user_id"], $product_id);
     }
 }
 
 // Fetch cart items
-$cartItems = $cart->cartItems($_SESSION["user_id"]); // mysqli_result
+$cartItems = cart_items($_SESSION["user_id"]);
 
-function showCartItems($cartItems, $productControl) {
+function show_cart_items($cartItems, $productControl) {
     $subtotal = 0;
     while ($row = $cartItems->fetch_assoc()) {
-        $product = $productControl->getProductById($row['product_id']);
-        if (!$product) continue;
+        $product = get_product_by_id($row['product_id']);
+        if ($product){
         $total = $product['price'] * $row['quantity'];
         $subtotal += $total;
+        }
         ?>
         <form class="cart-item" method="post" style="display:flex;align-items:center;">
             <div id="item">
@@ -57,13 +58,18 @@ function showCartItems($cartItems, $productControl) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your Cart</title>
-        <link  rel="stylesheet" href="css/cart.css?v=12">
+        <link  rel="stylesheet" href="css/cart.css?v=<?= time() ?>" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     </head>
     <body>
         <nav>
-            <h1>RETAILO</h1>
+            <div>
+                <h1 ><a style="text-decoration: none; color: black;" href="index.php">RETAILO</a></h1>
+            </div>
+            <div>
+                <h3>Cart</h3>
+            </div>
         </nav>
         <div class="cart-container">
             <h1 style="text-align:center;">Your Cart</h1>
@@ -77,7 +83,7 @@ function showCartItems($cartItems, $productControl) {
                 <?php 
     
                 if ($cartItems && $cartItems->num_rows > 0) {
-                    $subtotal = showCartItems($cartItems, $productControl);
+                    $subtotal = show_cart_items($cartItems, $productControl);
                 } else {
                     echo "<p style='text-align:center;'>Your cart is empty.</p>";
                     $subtotal = 0;

@@ -15,6 +15,7 @@ if($status === 'error'){
         body{
             font-family: "Arvo";
             align-content: center;
+            background-color: hsl(0, 0%, 87%);
         }
         .signup-box{
             display:flex;
@@ -22,6 +23,7 @@ if($status === 'error'){
             margin: auto;
             border: 1px solid black;
             box-shadow: 0 25px 50px 0 rgba(0,0,0,0.5);
+            background-color: hsl(0, 0%, 100%);
         }
         .signup-form{
             margin: 2rem 0;
@@ -52,12 +54,11 @@ if($status === 'error'){
             width: 50%;
             height: 2rem;
             margin-bottom: 16px;
-            border-radius:  10px;
             border: 1px solid black;
         }
         .signup-img{
             width: 50%;
-            height: 100%;
+            height:inherit;
         }
         .signup-img img{
             width: 100%;
