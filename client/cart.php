@@ -2,6 +2,7 @@
 session_start();
 if(!isset($_SESSION["user_id"])){
     echo "Please <a href='signin.php?ref=cart.php'>sign in</a> to view your cart.";
+    header('Location : signin.php?ref=cart.php');
     exit;
 }
 

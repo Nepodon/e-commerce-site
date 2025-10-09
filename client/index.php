@@ -22,12 +22,15 @@ function set_image_src($product_id) {
 }
 
 $product_result = get_products_by_sales();
+$counter = 0;
 if($product_result) {
     $top_results = [];
     $image_srcs = [];
     while($row = $product_result->fetch_assoc()) {
-        $top_products[] = $row['name'];
+        $top_results[$counter][0] = $row['name'];
+        $top_results[$counter][1] = $row['stock'];
         $image_srcs[] = set_image_src($row['id']);
+        $counter++;
     }
 }
 
@@ -64,6 +67,7 @@ if($product_result) {
                     <a href="javascript:void(0)" class="closebtn" onclick="closePanel()">&times;</a>
                     <a href="orders.php">Orders</a>
                     <a href="payment.php">Payment</a>
+                    <a href="payment.php">Products</a>
                     <a href="update_account.php">Update Account</a>
                     <a href="logout.php">Logout</a>
                 </div>
@@ -90,12 +94,13 @@ if($product_result) {
         </div>
         <div class="products">
             <?php 
-            if (!empty($top_products)) {
-                for ($i = 0; $i < count($top_products); $i++) {
+            if (!empty($top_results)) {
+                for ($i = 0; $i < $counter; $i++) {
                     ?>
                     <div class="product-card">
                         <img src="<?= htmlspecialchars($image_srcs[$i]) ?>" alt="Product Image">
-                        <h3 style="text-align: center;"><?= htmlspecialchars($top_products[$i]) ?></h3>
+                        <h3 style="text-align: center;"><?= htmlspecialchars($top_results[$i][0]) ?></h3>
+                        <h4 style="text-align: center;">Available : <?= htmlspecialchars($top_results[$i][1]) ?></h4>
                         <button class="buttons">Add to cart</button>
                     </div>
                     <?php

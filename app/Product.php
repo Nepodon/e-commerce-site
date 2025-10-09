@@ -14,6 +14,20 @@ function add_product($name, $category, $description, $price, $stock): bool {
     return false;
 }
 
+function get_product_id($product_name) {
+    $db_obj = new DBcontrol();
+    $query = "SELECT id FROM products WHERE name = ?";
+    $stmt = $db_obj->prepare($query);
+    $stmt->bind_param("s", $product_name);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row['id'];
+    }
+    return false;
+} 
+
 function get_product_by_id(int $product_id) {
     $db = new DBcontrol();
     $sql = "SELECT * FROM products WHERE product_id = ?";
@@ -28,7 +42,7 @@ function get_product_by_id(int $product_id) {
 
 function get_products_by_sales() {
     $db = new DBcontrol();
-    $sql = "SELECT id, name, stock, sold_count FROM products ORDER BY sold_count DESC LIMIT 5";
+    $sql = "SELECT id, name, stock, sold_count FROM products ORDER BY sold_count DESC LIMIT 3";
     return $db->query($sql);
 }
 

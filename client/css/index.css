@@ -81,7 +81,7 @@ body{
 .product-card {
     border: 1px solid black;
     margin: 0.5rem;
-    height: fit-content;
+    height: 100%;
     width: 250px;
 }
 .product-card img{

@@ -5,9 +5,9 @@ require_once '../app/Product.php';
 require_once '../app/Image.php';
 
 $success = false;
-if(isset($_SERVER['REQUEST_METHOD']) === 'POST') {
-    $image_file = $_FILES['image']['tmp_name'];
-    $image_data = file_get_contents($image_file);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $image_data = $_FILES['image']['tmp_name'];
     $image_type = $_FILES['image']['type'];
 
     $name= $_POST['name'];
@@ -15,12 +15,14 @@ if(isset($_SERVER['REQUEST_METHOD']) === 'POST') {
     $description= $_POST['description'];
     $price= $_POST['price'];
     $stock= $_POST['stock'];
-    if($name && $category && $description && $price && $stock && $image_file) {
-        $product_id = add_product($name, $category, $description, $price, $stock);
-        if($product_id) {
-            $image_id = add_image($name, $product_id, $image_type,$image_data);
+    if($name && $category && $description && $price && $stock && $image_data) {
+        $product = add_product($name, $category, $description, $price, $stock);
+        $product_id = get_product_id($name);
+        if($product) {
+            $image_id = add_image($name, $product_id, $image_type, $image_data);
             if($image_id) {
                 $message = "Product added successfully.";
+                $success = true;
             } else {
                 $message = "Failed to upload image.";
                 delete_product($product_id); // Rollback product addition if image upload fails
@@ -31,7 +33,10 @@ if(isset($_SERVER['REQUEST_METHOD']) === 'POST') {
     } else {
         $message = "All fields are required.";
     }
-    $success = true;
+}
+
+if($success) {
+    header('refresh: 1; url=products.php');
 }
 ?>
 <!DOCTYPE html>
@@ -93,7 +98,7 @@ if(isset($_SERVER['REQUEST_METHOD']) === 'POST') {
     </nav>
     <div class="container">
         <h2>Add New Product</h2>
-        <?php if(isset($message) && $success): ?>
+        <?php if(isset($message) ): ?>
             <em><?php echo htmlspecialchars($message); ?></em><br>
         <?php endif; ?>
         <form method="POST" enctype="multipart/form-data">

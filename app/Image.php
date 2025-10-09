@@ -5,7 +5,7 @@ require_once 'DBControl.php';
 
 function get_image($product_id) {
     $db_obj = new DBcontrol();
-    $query = "SELECT * FROM image WHERE image_name = '$product_id'";
+    $query = "SELECT * FROM image WHERE ref_id = '$product_id'";
     $result = $db_obj->query($query);
     if($result && $result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -28,11 +28,11 @@ function get_image_type($product_id) {
 function add_image($image_name, $ref_id,$type, $image) {
 
     $db_obj = new DBcontrol();
-
     $query = "INSERT INTO image (image_name, ref_id,type, image_binary) 
               VALUES (?, ?,?, ?)";
     $stmt = $db_obj->prepare($query);
-    $stmt->bind_param("sisb", $image_name, $ref_id,$type, $image_binary);
+    $image_binary = file_get_contents($image);
+    $stmt->bind_param("sisb", $image_name, $ref_id, $type, $image_binary);
     $stmt->send_long_data(3, $image_binary);
     return $stmt->execute();
 }
