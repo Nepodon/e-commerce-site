@@ -46,7 +46,7 @@ if($product_result) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <title>Retailo</title>
-        <script>
+        <script src="js/cart.js">
             function openPanel(){
                 document.getElementById('side-panel').style.display = "block";
             }
@@ -54,6 +54,7 @@ if($product_result) {
                 document.getElementById('side-panel').style.display = "none";
 
             }
+
         </script>
     </head>    
     <body>
@@ -109,7 +110,6 @@ if($product_result) {
                 echo "<p>No featured products available.</p>";
             }
             ?>
-
         </div>
         </div>
         <footer>

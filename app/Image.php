@@ -1,6 +1,6 @@
 <?php 
 
-require_once 'DBControl.php';
+require_once 'DBcontrol.php';
 
 
 function get_image($product_id) {

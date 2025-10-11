@@ -1,7 +1,6 @@
 <?php 
 session_start();
 if(!isset($_SESSION["user_id"])){
-    echo "Please <a href='signin.php?ref=cart.php'>sign in</a> to view your cart.";
     header('Location : signin.php?ref=cart.php');
     exit;
 }
@@ -56,12 +55,14 @@ function show_cart_items($cartItems, $productControl) {
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your Cart</title>
         <link  rel="stylesheet" href="css/cart.css?v=<?= time() ?>" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <script src="js/process.js"></script>
     </head>
     <body>
         <nav>
@@ -107,7 +108,7 @@ function show_cart_items($cartItems, $productControl) {
                 </div>
                 <?php endif; ?>
                 <div>
-                    <a href="payment.php"><button class="checkout-btn">Check out</button></a>
+                    <a href="payment.php"><button onclick="" class="checkout-btn">Check out</button></a>
                 </div>  
             </div> 
         </div> 

@@ -19,14 +19,14 @@ function cart_items(int $user_id) {
     return false;
 }
 
-function add_item(int $cart_id, int $user_id, int $product_id, int $quantity = 1) {
+function add_item(int $user_id, int $product_id, int $quantity = 1) {
     $db = new DBcontrol();
-    $sql = "INSERT INTO cart VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO cart VALUES (?, ?, ?)";
     $stmt = $db->prepare($sql);
     if ($stmt === false) {
         return false;
     }
-    $stmt->bind_param("iiii", $cart_id, $user_id, $product_id, $quantity);
+    $stmt->bind_param("iii",  $user_id, $product_id, $quantity);
     $result = $stmt->execute();
     $stmt->close();
     return $result;
