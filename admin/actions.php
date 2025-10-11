@@ -2,20 +2,18 @@
 
 $product_obj = require_once '../app/Product.php';
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $id = $_POST['id'];
-    delete_product($id);
-    delete_image($id);
-    $respose = [
-        'status' => 'success',
-        'message' => 'Product deleted successfully'
-    ];
-    header('Content-Type: application/json');
-    echo json_encode($respose);
+// Placeholder for future action handling (edit/delete)
+
+header('Location: products.php?action=delete&status=failed');
+exit;
+
+/*if(isset($_GET['id'])) {
+    $product_id = $_GET['id'];
+    $product_data = get_product_by_id($product_id);
+    if(!$product_data) {
+        header('Location: products.php?action=delete&status=success');
+        exit;
+    }
 } else {
-    $respose = [
-        'status' => 'error',
-        'message' => 'Invalid request method'
-    ];
-}
-    
+    echo "No product ID specified.";
+}*/

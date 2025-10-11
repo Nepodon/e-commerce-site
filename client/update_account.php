@@ -4,7 +4,7 @@ $user = require_once '../app/User.php';
 
 // Fetch user data
 if(!isset($_SESSION['user_id'])) {
-    echo "Login to change account details! <a href='signin.php?ref=account.php'>Signin here!</a>";
+    echo "Login to change account details! <a href='signin.php?ref=update_account.php'>Signin here!</a>";
     exit;
 }
 $user_id = $_SESSION['user_id'];

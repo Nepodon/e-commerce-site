@@ -67,7 +67,7 @@ if($product_result) {
                     <a href="javascript:void(0)" class="closebtn" onclick="closePanel()">&times;</a>
                     <a href="orders.php">Orders</a>
                     <a href="payment.php">Payment</a>
-                    <a href="payment.php">Products</a>
+                    <a href="products.php">Products</a>
                     <a href="update_account.php">Update Account</a>
                     <a href="logout.php">Logout</a>
                 </div>

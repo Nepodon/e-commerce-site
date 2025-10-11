@@ -46,7 +46,6 @@ if($success) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product - Admin Panel</title>
     <link href="css/main.css" rel="stylesheet"/>
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Funnel+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
@@ -86,6 +85,7 @@ if($success) {
             padding: 0.5rem;
         }
     </style>
+    <script></script>
 </head>
 <body>
     <nav>
