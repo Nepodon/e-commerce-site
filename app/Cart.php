@@ -2,7 +2,7 @@
 
 require_once "DBcontrol.php";
 
-function cart_items(int $user_id) {
+function get_cart_items(int $user_id) {
     $db = new DBcontrol();
     $sql = "SELECT * FROM cart WHERE user_id = ?";
     $stmt = $db->prepare($sql);

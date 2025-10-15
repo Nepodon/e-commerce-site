@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['update_qty'])) {
 }
 
 // Fetch cart items
-$cartItems = cart_items($_SESSION["user_id"]);
+$cartItems = get_cart_items($_SESSION["user_id"]);
 
 function show_cart_items($cartItems, $productControl) {
     $subtotal = 0;
